@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9W9-7j-O2b">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Item-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="XMNAudioRecordController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n1y-4U-eT1">
+                                <rect key="frame" x="326" y="281" width="49" height="38"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                <state key="normal" title="Play"/>
+                                <connections>
+                                    <action selector="handlePlay:" destination="BYZ-38-t0r" eventType="touchUpInside" id="axF-cd-Owy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EEi-nx-ZcU">
+                                <rect key="frame" x="216" y="281" width="69" height="38"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                <state key="normal" title="Record"/>
+                                <connections>
+                                    <action selector="handleRecord:" destination="BYZ-38-t0r" eventType="touchUpInside" id="484-tY-iod"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="EEi-nx-ZcU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-50" id="7Lq-nY-8Xm"/>
+                            <constraint firstItem="n1y-4U-eT1" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="g7Y-3u-qn3"/>
+                            <constraint firstItem="EEi-nx-ZcU" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="qm2-5I-EuG"/>
+                            <constraint firstItem="n1y-4U-eT1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="50" id="zWv-Rg-0SH"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="Rbj-5p-xhm"/>
+                    <connections>
+                        <outlet property="playButton" destination="n1y-4U-eT1" id="FJ1-82-Dvl"/>
+                        <outlet property="recordButton" destination="EEi-nx-ZcU" id="a7k-w1-gWu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1156" y="338"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="yiH-Hj-fcB">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="9W9-7j-O2b" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="D6Z-ax-37v">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="8JA-oN-2m2"/>
+                        <segue destination="Ysw-P8-jcm" kind="relationship" relationship="viewControllers" id="AT0-27-pl3"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CMK-zg-ddm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="340" y="429"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="u3Z-mv-AAp">
+            <objects>
+                <viewController id="Ysw-P8-jcm" customClass="XMNAudioPlayerController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YPu-bt-ulZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="GC8-se-NF7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="m31-v9-65V">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nvF-3r-eGF">
+                                <rect key="frame" x="226" y="190" width="49" height="38"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                <state key="normal" title="Play"/>
+                                <connections>
+                                    <action selector="handlePlay:" destination="Ysw-P8-jcm" eventType="touchUpInside" id="nGU-eu-soA"/>
+                                </connections>
+                            </button>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Jck-jk-U6x">
+                                <rect key="frame" x="48" y="244" width="504" height="31"/>
+                                <connections>
+                                    <action selector="handleSliderValueChanged:" destination="Ysw-P8-jcm" eventType="valueChanged" id="b7Z-xn-L7k"/>
+                                </connections>
+                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="62l-4j-AQ7">
+                                <rect key="frame" x="324" y="306" width="52" height="38"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                <state key="normal" title="Next"/>
+                                <connections>
+                                    <action selector="handleNext:" destination="Ysw-P8-jcm" eventType="touchUpInside" id="6Wr-we-mdn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WtN-4B-eQV">
+                                <rect key="frame" x="225" y="306" width="50" height="38"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                <state key="normal" title="Last"/>
+                                <connections>
+                                    <action selector="handleLast:" destination="Ysw-P8-jcm" eventType="touchUpInside" id="6fj-gb-BHA"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入播放地址" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lfw-sW-bKW">
+                                <rect key="frame" x="50" y="120" width="500" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="to7-4e-oDA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LzT-jR-wJ0">
+                                <rect key="frame" x="324" y="190" width="52" height="38"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                <state key="normal" title="Stop"/>
+                                <connections>
+                                    <action selector="handleStop:" destination="Ysw-P8-jcm" eventType="touchUpInside" id="8bg-lq-ovh"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="62l-4j-AQ7" firstAttribute="centerX" secondItem="m31-v9-65V" secondAttribute="centerX" constant="50" id="2I9-pz-bBt"/>
+                            <constraint firstItem="Jck-jk-U6x" firstAttribute="top" secondItem="nvF-3r-eGF" secondAttribute="bottom" constant="16" id="A4y-ff-F9d"/>
+                            <constraint firstItem="LzT-jR-wJ0" firstAttribute="top" secondItem="lfw-sW-bKW" secondAttribute="bottom" constant="20" id="Io6-qs-P9g"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lfw-sW-bKW" secondAttribute="trailing" constant="30" id="Jpy-0D-QjV"/>
+                            <constraint firstItem="lfw-sW-bKW" firstAttribute="leading" secondItem="m31-v9-65V" secondAttribute="leadingMargin" constant="30" id="Kdh-3b-xhL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Jck-jk-U6x" secondAttribute="trailing" constant="30" id="Ree-6D-vux"/>
+                            <constraint firstItem="LzT-jR-wJ0" firstAttribute="centerX" secondItem="m31-v9-65V" secondAttribute="centerX" constant="50" id="Xfa-2L-OfC"/>
+                            <constraint firstItem="nvF-3r-eGF" firstAttribute="centerX" secondItem="m31-v9-65V" secondAttribute="centerX" constant="-50" id="bzj-7H-NVF"/>
+                            <constraint firstItem="Jck-jk-U6x" firstAttribute="leading" secondItem="m31-v9-65V" secondAttribute="leadingMargin" constant="30" id="gm2-pn-ycz"/>
+                            <constraint firstItem="lfw-sW-bKW" firstAttribute="top" secondItem="YPu-bt-ulZ" secondAttribute="bottom" constant="100" id="h5d-bH-P35"/>
+                            <constraint firstItem="WtN-4B-eQV" firstAttribute="centerX" secondItem="m31-v9-65V" secondAttribute="centerX" constant="-50" id="k0U-Y1-d4Q"/>
+                            <constraint firstItem="WtN-4B-eQV" firstAttribute="top" secondItem="Jck-jk-U6x" secondAttribute="bottom" constant="32" id="qem-0H-LEd"/>
+                            <constraint firstItem="62l-4j-AQ7" firstAttribute="top" secondItem="Jck-jk-U6x" secondAttribute="bottom" constant="32" id="qoa-3Z-mai"/>
+                            <constraint firstItem="LzT-jR-wJ0" firstAttribute="centerY" secondItem="nvF-3r-eGF" secondAttribute="centerY" id="tws-zW-Y5l"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="PVB-56-vc4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xMq-9A-uHD" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1156" y="1023"/>
+        </scene>
+    </scenes>
+</document>

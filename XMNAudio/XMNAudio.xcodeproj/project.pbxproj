@@ -1,0 +1,496 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9702AC1D1D24F506003CBA5C /* XMNAudio.h in Headers */ = {isa = PBXBuildFile; fileRef = 9702AC1C1D24F506003CBA5C /* XMNAudio.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9702AC841D24F5A0003CBA5C /* lame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9702AC5E1D24F5A0003CBA5C /* lame.framework */; };
+		9702AC851D24F5A0003CBA5C /* interf_dec.h in Headers */ = {isa = PBXBuildFile; fileRef = 9702AC621D24F5A0003CBA5C /* interf_dec.h */; };
+		9702AC861D24F5A0003CBA5C /* interf_enc.h in Headers */ = {isa = PBXBuildFile; fileRef = 9702AC631D24F5A0003CBA5C /* interf_enc.h */; };
+		9702AC871D24F5A0003CBA5C /* dec_if.h in Headers */ = {isa = PBXBuildFile; fileRef = 9702AC651D24F5A0003CBA5C /* dec_if.h */; };
+		9702AC881D24F5A0003CBA5C /* if_rom.h in Headers */ = {isa = PBXBuildFile; fileRef = 9702AC661D24F5A0003CBA5C /* if_rom.h */; };
+		9702AC891D24F5A0003CBA5C /* libopencore-amrnb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9702AC681D24F5A0003CBA5C /* libopencore-amrnb.a */; };
+		9702AC8A1D24F5A0003CBA5C /* libopencore-amrwb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9702AC691D24F5A0003CBA5C /* libopencore-amrwb.a */; };
+		9702AC8B1D24F5A0003CBA5C /* XMNAudioConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 9702AC6A1D24F5A0003CBA5C /* XMNAudioConfiguration.h */; };
+		9702AC8C1D24F5A0003CBA5C /* NSData+XMNMappedFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 9702AC6C1D24F5A0003CBA5C /* NSData+XMNMappedFile.h */; };
+		9702AC8D1D24F5A0003CBA5C /* NSData+XMNMappedFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 9702AC6D1D24F5A0003CBA5C /* NSData+XMNMappedFile.m */; };
+		9702AC8E1D24F5A0003CBA5C /* XMNAudioDecoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 9702AC6E1D24F5A0003CBA5C /* XMNAudioDecoder.h */; };
+		9702AC8F1D24F5A0003CBA5C /* XMNAudioDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9702AC6F1D24F5A0003CBA5C /* XMNAudioDecoder.m */; };
+		9702AC901D24F5A0003CBA5C /* XMNAudioFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 9702AC701D24F5A0003CBA5C /* XMNAudioFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9702AC911D24F5A0003CBA5C /* XMNAudioFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 9702AC711D24F5A0003CBA5C /* XMNAudioFile.m */; };
+		9702AC921D24F5A0003CBA5C /* XMNAudioFileProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 9702AC721D24F5A0003CBA5C /* XMNAudioFileProvider.h */; };
+		9702AC931D24F5A0003CBA5C /* XMNAudioFileProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 9702AC731D24F5A0003CBA5C /* XMNAudioFileProvider.m */; };
+		9702AC941D24F5A0003CBA5C /* XMNAudioLPCM.h in Headers */ = {isa = PBXBuildFile; fileRef = 9702AC741D24F5A0003CBA5C /* XMNAudioLPCM.h */; };
+		9702AC951D24F5A0003CBA5C /* XMNAudioLPCM.m in Sources */ = {isa = PBXBuildFile; fileRef = 9702AC751D24F5A0003CBA5C /* XMNAudioLPCM.m */; };
+		9702AC961D24F5A0003CBA5C /* XMNAudioPlaybackItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 9702AC761D24F5A0003CBA5C /* XMNAudioPlaybackItem.h */; };
+		9702AC971D24F5A0003CBA5C /* XMNAudioPlaybackItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9702AC771D24F5A0003CBA5C /* XMNAudioPlaybackItem.m */; };
+		9702AC981D24F5A0003CBA5C /* XMNAudioPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 9702AC781D24F5A0003CBA5C /* XMNAudioPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9702AC991D24F5A0003CBA5C /* XMNAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9702AC791D24F5A0003CBA5C /* XMNAudioPlayer.m */; };
+		9702AC9A1D24F5A0003CBA5C /* XMNAudioPlayer_XMNPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 9702AC7A1D24F5A0003CBA5C /* XMNAudioPlayer_XMNPrivate.h */; };
+		9702AC9B1D24F5A0003CBA5C /* XMNAudioRender.h in Headers */ = {isa = PBXBuildFile; fileRef = 9702AC7B1D24F5A0003CBA5C /* XMNAudioRender.h */; };
+		9702AC9C1D24F5A0003CBA5C /* XMNAudioRender.m in Sources */ = {isa = PBXBuildFile; fileRef = 9702AC7C1D24F5A0003CBA5C /* XMNAudioRender.m */; };
+		9702AC9D1D24F5A0003CBA5C /* XMNAudioRunLoop.h in Headers */ = {isa = PBXBuildFile; fileRef = 9702AC7D1D24F5A0003CBA5C /* XMNAudioRunLoop.h */; };
+		9702AC9E1D24F5A0003CBA5C /* XMNAudioRunLoop.m in Sources */ = {isa = PBXBuildFile; fileRef = 9702AC7E1D24F5A0003CBA5C /* XMNAudioRunLoop.m */; };
+		9702AC9F1D24F5A0003CBA5C /* XMNAudioEncoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 9702AC801D24F5A0003CBA5C /* XMNAudioEncoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9702ACA01D24F5A0003CBA5C /* XMNAudioEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9702AC811D24F5A0003CBA5C /* XMNAudioEncoder.m */; };
+		9702ACA11D24F5A0003CBA5C /* XMNAudioRecorder.h in Headers */ = {isa = PBXBuildFile; fileRef = 9702AC821D24F5A0003CBA5C /* XMNAudioRecorder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9702ACA21D24F5A0003CBA5C /* XMNAudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9702AC831D24F5A0003CBA5C /* XMNAudioRecorder.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9702AC191D24F506003CBA5C /* XMNAudio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XMNAudio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9702AC1C1D24F506003CBA5C /* XMNAudio.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMNAudio.h; sourceTree = "<group>"; };
+		9702AC1E1D24F506003CBA5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9702AC5E1D24F5A0003CBA5C /* lame.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = lame.framework; sourceTree = "<group>"; };
+		9702AC621D24F5A0003CBA5C /* interf_dec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = interf_dec.h; sourceTree = "<group>"; };
+		9702AC631D24F5A0003CBA5C /* interf_enc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = interf_enc.h; sourceTree = "<group>"; };
+		9702AC651D24F5A0003CBA5C /* dec_if.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dec_if.h; sourceTree = "<group>"; };
+		9702AC661D24F5A0003CBA5C /* if_rom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = if_rom.h; sourceTree = "<group>"; };
+		9702AC681D24F5A0003CBA5C /* libopencore-amrnb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrnb.a"; sourceTree = "<group>"; };
+		9702AC691D24F5A0003CBA5C /* libopencore-amrwb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrwb.a"; sourceTree = "<group>"; };
+		9702AC6A1D24F5A0003CBA5C /* XMNAudioConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMNAudioConfiguration.h; sourceTree = "<group>"; };
+		9702AC6C1D24F5A0003CBA5C /* NSData+XMNMappedFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+XMNMappedFile.h"; sourceTree = "<group>"; };
+		9702AC6D1D24F5A0003CBA5C /* NSData+XMNMappedFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+XMNMappedFile.m"; sourceTree = "<group>"; };
+		9702AC6E1D24F5A0003CBA5C /* XMNAudioDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMNAudioDecoder.h; sourceTree = "<group>"; };
+		9702AC6F1D24F5A0003CBA5C /* XMNAudioDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMNAudioDecoder.m; sourceTree = "<group>"; };
+		9702AC701D24F5A0003CBA5C /* XMNAudioFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMNAudioFile.h; sourceTree = "<group>"; };
+		9702AC711D24F5A0003CBA5C /* XMNAudioFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMNAudioFile.m; sourceTree = "<group>"; };
+		9702AC721D24F5A0003CBA5C /* XMNAudioFileProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMNAudioFileProvider.h; sourceTree = "<group>"; };
+		9702AC731D24F5A0003CBA5C /* XMNAudioFileProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMNAudioFileProvider.m; sourceTree = "<group>"; };
+		9702AC741D24F5A0003CBA5C /* XMNAudioLPCM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMNAudioLPCM.h; sourceTree = "<group>"; };
+		9702AC751D24F5A0003CBA5C /* XMNAudioLPCM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMNAudioLPCM.m; sourceTree = "<group>"; };
+		9702AC761D24F5A0003CBA5C /* XMNAudioPlaybackItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMNAudioPlaybackItem.h; sourceTree = "<group>"; };
+		9702AC771D24F5A0003CBA5C /* XMNAudioPlaybackItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMNAudioPlaybackItem.m; sourceTree = "<group>"; };
+		9702AC781D24F5A0003CBA5C /* XMNAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMNAudioPlayer.h; sourceTree = "<group>"; };
+		9702AC791D24F5A0003CBA5C /* XMNAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMNAudioPlayer.m; sourceTree = "<group>"; };
+		9702AC7A1D24F5A0003CBA5C /* XMNAudioPlayer_XMNPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMNAudioPlayer_XMNPrivate.h; sourceTree = "<group>"; };
+		9702AC7B1D24F5A0003CBA5C /* XMNAudioRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMNAudioRender.h; sourceTree = "<group>"; };
+		9702AC7C1D24F5A0003CBA5C /* XMNAudioRender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMNAudioRender.m; sourceTree = "<group>"; };
+		9702AC7D1D24F5A0003CBA5C /* XMNAudioRunLoop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMNAudioRunLoop.h; sourceTree = "<group>"; };
+		9702AC7E1D24F5A0003CBA5C /* XMNAudioRunLoop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMNAudioRunLoop.m; sourceTree = "<group>"; };
+		9702AC801D24F5A0003CBA5C /* XMNAudioEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMNAudioEncoder.h; sourceTree = "<group>"; };
+		9702AC811D24F5A0003CBA5C /* XMNAudioEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMNAudioEncoder.m; sourceTree = "<group>"; };
+		9702AC821D24F5A0003CBA5C /* XMNAudioRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMNAudioRecorder.h; sourceTree = "<group>"; };
+		9702AC831D24F5A0003CBA5C /* XMNAudioRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMNAudioRecorder.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9702AC151D24F506003CBA5C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9702AC841D24F5A0003CBA5C /* lame.framework in Frameworks */,
+				9702AC8A1D24F5A0003CBA5C /* libopencore-amrwb.a in Frameworks */,
+				9702AC891D24F5A0003CBA5C /* libopencore-amrnb.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9702AC0F1D24F506003CBA5C = {
+			isa = PBXGroup;
+			children = (
+				9702AC1B1D24F506003CBA5C /* XMNAudio */,
+				9702AC1A1D24F506003CBA5C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9702AC1A1D24F506003CBA5C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9702AC191D24F506003CBA5C /* XMNAudio.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9702AC1B1D24F506003CBA5C /* XMNAudio */ = {
+			isa = PBXGroup;
+			children = (
+				9702AC5C1D24F5A0003CBA5C /* Vendors */,
+				9702AC6B1D24F5A0003CBA5C /* XMNAudioPlayer */,
+				9702AC7F1D24F5A0003CBA5C /* XMNAudioRecorder */,
+				9702AC1C1D24F506003CBA5C /* XMNAudio.h */,
+				9702AC6A1D24F5A0003CBA5C /* XMNAudioConfiguration.h */,
+				9702AC1E1D24F506003CBA5C /* Info.plist */,
+			);
+			path = XMNAudio;
+			sourceTree = "<group>";
+		};
+		9702AC5C1D24F5A0003CBA5C /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+				9702AC5D1D24F5A0003CBA5C /* lame_mp3 */,
+				9702AC5F1D24F5A0003CBA5C /* libopencore_amr */,
+			);
+			path = Vendors;
+			sourceTree = "<group>";
+		};
+		9702AC5D1D24F5A0003CBA5C /* lame_mp3 */ = {
+			isa = PBXGroup;
+			children = (
+				9702AC5E1D24F5A0003CBA5C /* lame.framework */,
+			);
+			path = lame_mp3;
+			sourceTree = "<group>";
+		};
+		9702AC5F1D24F5A0003CBA5C /* libopencore_amr */ = {
+			isa = PBXGroup;
+			children = (
+				9702AC601D24F5A0003CBA5C /* include */,
+				9702AC671D24F5A0003CBA5C /* lib */,
+			);
+			path = libopencore_amr;
+			sourceTree = "<group>";
+		};
+		9702AC601D24F5A0003CBA5C /* include */ = {
+			isa = PBXGroup;
+			children = (
+				9702AC611D24F5A0003CBA5C /* opencore-amrnb */,
+				9702AC641D24F5A0003CBA5C /* opencore-amrwb */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		9702AC611D24F5A0003CBA5C /* opencore-amrnb */ = {
+			isa = PBXGroup;
+			children = (
+				9702AC621D24F5A0003CBA5C /* interf_dec.h */,
+				9702AC631D24F5A0003CBA5C /* interf_enc.h */,
+			);
+			path = "opencore-amrnb";
+			sourceTree = "<group>";
+		};
+		9702AC641D24F5A0003CBA5C /* opencore-amrwb */ = {
+			isa = PBXGroup;
+			children = (
+				9702AC651D24F5A0003CBA5C /* dec_if.h */,
+				9702AC661D24F5A0003CBA5C /* if_rom.h */,
+			);
+			path = "opencore-amrwb";
+			sourceTree = "<group>";
+		};
+		9702AC671D24F5A0003CBA5C /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				9702AC681D24F5A0003CBA5C /* libopencore-amrnb.a */,
+				9702AC691D24F5A0003CBA5C /* libopencore-amrwb.a */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		9702AC6B1D24F5A0003CBA5C /* XMNAudioPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				9702AC6C1D24F5A0003CBA5C /* NSData+XMNMappedFile.h */,
+				9702AC6D1D24F5A0003CBA5C /* NSData+XMNMappedFile.m */,
+				9702AC6E1D24F5A0003CBA5C /* XMNAudioDecoder.h */,
+				9702AC6F1D24F5A0003CBA5C /* XMNAudioDecoder.m */,
+				9702AC701D24F5A0003CBA5C /* XMNAudioFile.h */,
+				9702AC711D24F5A0003CBA5C /* XMNAudioFile.m */,
+				9702AC721D24F5A0003CBA5C /* XMNAudioFileProvider.h */,
+				9702AC731D24F5A0003CBA5C /* XMNAudioFileProvider.m */,
+				9702AC741D24F5A0003CBA5C /* XMNAudioLPCM.h */,
+				9702AC751D24F5A0003CBA5C /* XMNAudioLPCM.m */,
+				9702AC761D24F5A0003CBA5C /* XMNAudioPlaybackItem.h */,
+				9702AC771D24F5A0003CBA5C /* XMNAudioPlaybackItem.m */,
+				9702AC781D24F5A0003CBA5C /* XMNAudioPlayer.h */,
+				9702AC791D24F5A0003CBA5C /* XMNAudioPlayer.m */,
+				9702AC7A1D24F5A0003CBA5C /* XMNAudioPlayer_XMNPrivate.h */,
+				9702AC7B1D24F5A0003CBA5C /* XMNAudioRender.h */,
+				9702AC7C1D24F5A0003CBA5C /* XMNAudioRender.m */,
+				9702AC7D1D24F5A0003CBA5C /* XMNAudioRunLoop.h */,
+				9702AC7E1D24F5A0003CBA5C /* XMNAudioRunLoop.m */,
+			);
+			path = XMNAudioPlayer;
+			sourceTree = "<group>";
+		};
+		9702AC7F1D24F5A0003CBA5C /* XMNAudioRecorder */ = {
+			isa = PBXGroup;
+			children = (
+				9702AC801D24F5A0003CBA5C /* XMNAudioEncoder.h */,
+				9702AC811D24F5A0003CBA5C /* XMNAudioEncoder.m */,
+				9702AC821D24F5A0003CBA5C /* XMNAudioRecorder.h */,
+				9702AC831D24F5A0003CBA5C /* XMNAudioRecorder.m */,
+			);
+			path = XMNAudioRecorder;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		9702AC161D24F506003CBA5C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9702AC981D24F5A0003CBA5C /* XMNAudioPlayer.h in Headers */,
+				9702AC941D24F5A0003CBA5C /* XMNAudioLPCM.h in Headers */,
+				9702AC871D24F5A0003CBA5C /* dec_if.h in Headers */,
+				9702AC861D24F5A0003CBA5C /* interf_enc.h in Headers */,
+				9702AC8E1D24F5A0003CBA5C /* XMNAudioDecoder.h in Headers */,
+				9702AC8B1D24F5A0003CBA5C /* XMNAudioConfiguration.h in Headers */,
+				9702AC1D1D24F506003CBA5C /* XMNAudio.h in Headers */,
+				9702AC8C1D24F5A0003CBA5C /* NSData+XMNMappedFile.h in Headers */,
+				9702AC9F1D24F5A0003CBA5C /* XMNAudioEncoder.h in Headers */,
+				9702AC901D24F5A0003CBA5C /* XMNAudioFile.h in Headers */,
+				9702AC881D24F5A0003CBA5C /* if_rom.h in Headers */,
+				9702AC921D24F5A0003CBA5C /* XMNAudioFileProvider.h in Headers */,
+				9702AC9D1D24F5A0003CBA5C /* XMNAudioRunLoop.h in Headers */,
+				9702ACA11D24F5A0003CBA5C /* XMNAudioRecorder.h in Headers */,
+				9702AC9B1D24F5A0003CBA5C /* XMNAudioRender.h in Headers */,
+				9702AC851D24F5A0003CBA5C /* interf_dec.h in Headers */,
+				9702AC9A1D24F5A0003CBA5C /* XMNAudioPlayer_XMNPrivate.h in Headers */,
+				9702AC961D24F5A0003CBA5C /* XMNAudioPlaybackItem.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		9702AC181D24F506003CBA5C /* XMNAudio */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9702AC211D24F506003CBA5C /* Build configuration list for PBXNativeTarget "XMNAudio" */;
+			buildPhases = (
+				9702AC141D24F506003CBA5C /* Sources */,
+				9702AC151D24F506003CBA5C /* Frameworks */,
+				9702AC161D24F506003CBA5C /* Headers */,
+				9702AC171D24F506003CBA5C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = XMNAudio;
+			productName = XMNAudio;
+			productReference = 9702AC191D24F506003CBA5C /* XMNAudio.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9702AC101D24F506003CBA5C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = XMFraker;
+				TargetAttributes = {
+					9702AC181D24F506003CBA5C = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 9702AC131D24F506003CBA5C /* Build configuration list for PBXProject "XMNAudio" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9702AC0F1D24F506003CBA5C;
+			productRefGroup = 9702AC1A1D24F506003CBA5C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9702AC181D24F506003CBA5C /* XMNAudio */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9702AC171D24F506003CBA5C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9702AC141D24F506003CBA5C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9702AC9C1D24F5A0003CBA5C /* XMNAudioRender.m in Sources */,
+				9702AC971D24F5A0003CBA5C /* XMNAudioPlaybackItem.m in Sources */,
+				9702AC8D1D24F5A0003CBA5C /* NSData+XMNMappedFile.m in Sources */,
+				9702ACA01D24F5A0003CBA5C /* XMNAudioEncoder.m in Sources */,
+				9702AC931D24F5A0003CBA5C /* XMNAudioFileProvider.m in Sources */,
+				9702AC951D24F5A0003CBA5C /* XMNAudioLPCM.m in Sources */,
+				9702AC911D24F5A0003CBA5C /* XMNAudioFile.m in Sources */,
+				9702AC8F1D24F5A0003CBA5C /* XMNAudioDecoder.m in Sources */,
+				9702ACA21D24F5A0003CBA5C /* XMNAudioRecorder.m in Sources */,
+				9702AC991D24F5A0003CBA5C /* XMNAudioPlayer.m in Sources */,
+				9702AC9E1D24F5A0003CBA5C /* XMNAudioRunLoop.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		9702AC1F1D24F506003CBA5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		9702AC201D24F506003CBA5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		9702AC221D24F506003CBA5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/XMNAudio/Vendors/lame_mp3",
+				);
+				INFOPLIST_FILE = XMNAudio/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/XMNAudio/Vendors/libopencore_amr/lib",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.XMFraker.XMNAudio;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		9702AC231D24F506003CBA5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/XMNAudio/Vendors/lame_mp3",
+				);
+				INFOPLIST_FILE = XMNAudio/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/XMNAudio/Vendors/libopencore_amr/lib",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.XMFraker.XMNAudio;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9702AC131D24F506003CBA5C /* Build configuration list for PBXProject "XMNAudio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9702AC1F1D24F506003CBA5C /* Debug */,
+				9702AC201D24F506003CBA5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9702AC211D24F506003CBA5C /* Build configuration list for PBXNativeTarget "XMNAudio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9702AC221D24F506003CBA5C /* Debug */,
+				9702AC231D24F506003CBA5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9702AC101D24F506003CBA5C /* Project object */;
+}
