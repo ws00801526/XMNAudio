@@ -20,6 +20,9 @@
 @property (nonatomic, copy, readonly)   NSArray *songs;
 @property (nonatomic, assign) BOOL remote;
 
+
+@property (weak, nonatomic) IBOutlet UIButton *playButton;
+
 @end
 
 @implementation XMNAudioPlayerController
@@ -33,8 +36,7 @@
 - (IBAction)handlePlay:(UIButton *)sender {
     
     if (self.player) {
-        
-        if (self.player.status == XMNAudioPlayerStatusPaused) {
+        if (self.player.status == XMNAudioPlayerStatusPaused || self.player.status == XMNAudioPlayerStatusFinished) {
             [self.player play];
             [sender setTitle:@"Pause" forState:UIControlStateNormal];
         }else {
@@ -55,6 +57,7 @@
         [self.player stop];
         self.player = nil;
     }
+    [self.playButton setTitle:@"Play" forState:UIControlStateNormal];
 }
 
 - (IBAction)handleLast:(UIButton *)sender {
@@ -81,11 +84,6 @@
 
 
 - (IBAction)handleSliderValueChanged:(UISlider *)sender {
-    
-    //    if ([self.simpleAudioPlayer isPlaying]) {
-    //
-    //        [self.simpleAudioPlayer setProgress:self.simpleAudioPlayer.duration * sender.value];
-    //    }
     
     [self.player setCurrentTime:sender.value * self.player.duration];
 }

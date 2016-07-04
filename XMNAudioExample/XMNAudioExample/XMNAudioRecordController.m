@@ -16,6 +16,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *recordButton;
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 
 
 @end
@@ -26,7 +27,6 @@
     
     [super viewDidLoad];
     self.recorder = [[XMNAudioRecorder alloc] init];
-    [self.recorder setConvertType:XMNAudioEncoderTypeAMR];
 }
 
 - (IBAction)handleRecord:(UIButton *)sender {
@@ -35,11 +35,13 @@
         [self.recorder stopRecording];
         [sender setTitle:@"Record" forState:UIControlStateNormal];
         NSLog(@"Record Finished :%@",[[self.recorder filePath] stringByAppendingPathComponent:[self.recorder filename]]);
+        self.segmentedControl.enabled = YES;
         return;
     }
+    [self.recorder setConvertType:self.segmentedControl.selectedSegmentIndex];
     [self.recorder startRecording];
     [sender setTitle:@"Stop Record" forState:UIControlStateNormal];
-
+    self.segmentedControl.enabled = NO;
 }
 
 
