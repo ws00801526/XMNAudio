@@ -7,6 +7,7 @@
 //
 
 #import "XMNAudioFile.h"
+#import "interf_dec.h"
 
 @implementation XMNAudioFilePreprofessor
 
@@ -15,6 +16,4 @@
     [self doesNotRecognizeSelector:_cmd];
     return nil;
 }
-
-
 @end

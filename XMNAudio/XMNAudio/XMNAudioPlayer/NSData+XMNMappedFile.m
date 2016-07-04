@@ -56,17 +56,17 @@ static CFAllocatorRef get_mmap_deallocator()
 
 + (instancetype)xmn_dataWithMappedContentsOfFile:(NSString *)path
 {
-    return [[self class] _xmn_dataWithMappedContentsOfFile:path modifiable:NO];
+    return [[self class] xmn_dataWithMappedContentsOfFile:path modifiable:NO];
 }
 
-+ (instancetype)xmn_dataWithMappedContentsOfURL:(NSURL *)url
-{
++ (instancetype)xmn_dataWithMappedContentsOfURL:(NSURL *)url {
+    
     return [[self class] xmn_dataWithMappedContentsOfFile:[url path]];
 }
 
-+ (instancetype)xmn_modifiableDataWithMappedContentsOfFile:(NSString *)path
-{
-    return [[self class] _xmn_dataWithMappedContentsOfFile:path modifiable:YES];
++ (instancetype)xmn_modifiableDataWithMappedContentsOfFile:(NSString *)path {
+    
+    return [[self class] xmn_dataWithMappedContentsOfFile:path modifiable:YES];
 }
 
 + (instancetype)xmn_modifiableDataWithMappedContentsOfURL:(NSURL *)url
@@ -74,7 +74,7 @@ static CFAllocatorRef get_mmap_deallocator()
     return [[self class] xmn_modifiableDataWithMappedContentsOfFile:[url path]];
 }
 
-+ (instancetype)_xmn_dataWithMappedContentsOfFile:(NSString *)path modifiable:(BOOL)modifiable
++ (instancetype)xmn_dataWithMappedContentsOfFile:(NSString *)path modifiable:(BOOL)modifiable
 {
     NSFileHandle *fileHandle = nil;
     if (modifiable) {

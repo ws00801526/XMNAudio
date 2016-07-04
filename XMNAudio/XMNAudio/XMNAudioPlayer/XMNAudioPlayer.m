@@ -46,9 +46,9 @@ NSString *const kXMNAudioPlayerErrorDomain = @"com.XMFraker.XMNAudio.XMNAudioPla
 @synthesize duration = _duration;
 @synthesize timingOffset = _timingOffset;
 
+@synthesize decoder = _decoder;
 @synthesize fileProvider = _fileProvider;
 @synthesize playbackItem = _playbackItem;
-@synthesize decoder = _decoder;
 
 @synthesize bufferingRatio = _bufferingRatio;
 

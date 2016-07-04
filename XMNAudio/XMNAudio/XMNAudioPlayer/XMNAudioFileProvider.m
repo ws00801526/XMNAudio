@@ -45,6 +45,22 @@ static BOOL gLastProviderIsFinished = NO;
 
 @end
 
+@interface XMNAudioRemoteFileProvider : XMNAudioFileProvider
+{
+@private
+    NSURLSessionDownloadTask *_downloadTask;
+    NSURL *_audioFileURL;
+    NSString *_audioFileHost;
+    
+    CC_SHA256_CTX *_sha256Ctx;
+    
+    AudioFileStreamID _audioFileStreamID;
+    BOOL _requiresCompleteFile;
+    BOOL _readyToProducePackets;
+    BOOL _requestCompleted;
+}
+@end
+
 
 #pragma mark - Abstract Class XMNAudioFileProvider
 
@@ -168,10 +184,8 @@ static BOOL gLastProviderIsFinished = NO;
 
 @end
 
+#pragma mark - Implementation of XMNAudioLocalFileProvider 
 
-/** LocalFileProvider */
-
-#pragma mark - XMNAudioLocalFileProvider
 @implementation XMNAudioLocalFileProvider
 
 
@@ -257,3 +271,30 @@ static BOOL gLastProviderIsFinished = NO;
 
 @end
 
+
+#pragma mark - Implementation of XMNAudioRemoteFileProvider
+
+@implementation XMNAudioRemoteFileProvider
+@synthesize finished = _requestCompleted;
+
+- (instancetype)initWithAudioFile:(id <XMNAudioFile>)audioFile {
+    
+    if (self = [super initWithAudioFile:audioFile]) {
+        
+        _audioFileURL = [audioFile audioFileURL];
+        if ([audioFile respondsToSelector:@selector(audioFileHost)]) {
+            _audioFileHost = [audioFile audioFileHost];
+        }
+        _sha256Ctx = (CC_SHA256_CTX *)malloc(sizeof(CC_SHA256_CTX));
+        CC_SHA256_Init(_sha256Ctx);
+
+    }
+    return self;
+}
+
+
+#pragma mark - Audio File Stream Methods
+
+
+
+@end

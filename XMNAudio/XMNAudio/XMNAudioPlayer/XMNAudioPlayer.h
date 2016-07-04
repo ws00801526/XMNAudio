@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "XMNAudioFile.h"
 
+@class XMNAudioDecoder;
 FOUNDATION_EXPORT NSString *const kXMNAudioPlayerErrorDomain;
 
 typedef NS_ENUM(NSUInteger, XMNAudioPlayerStatus) {
@@ -30,6 +31,8 @@ typedef NS_ENUM(NSInteger, XMNAudioPlayerErrorCode) {
 
 @property (assign, readonly) XMNAudioPlayerStatus status;
 @property (strong, readonly) NSError *error;
+
+@property (nonatomic, readonly) XMNAudioDecoder *decoder;
 
 @property (nonatomic, readonly) id <XMNAudioFile> audioFile;
 @property (nonatomic, readonly) NSURL *url;

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AudioToolBox/AudioToolBox.h>
 
 @interface XMNAudioRender : NSObject
 
@@ -21,13 +22,13 @@
 + (instancetype)rendererWithBufferTime:(NSUInteger)bufferTime;
 - (instancetype)initWithBufferTime:(NSUInteger)bufferTime;
 
-- (BOOL)setup;
+- (BOOL)setupWithAudioStreamDescription:(AudioStreamBasicDescription)description;
+
 - (void)tearDown;
 
 - (void)renderBytes:(const void *)bytes length:(NSUInteger)length;
 - (void)stop;
 - (void)flush;
 - (void)flushShouldResetTiming:(BOOL)shouldResetTiming;
-
 
 @end

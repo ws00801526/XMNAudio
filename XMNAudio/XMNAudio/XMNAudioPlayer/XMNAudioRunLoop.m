@@ -58,7 +58,6 @@ typedef NS_ENUM(uint64_t, event_type) {
     XMNAudioRender *_renderer;
     XMNAudioPlayer *_currentPlayer;
     
-    NSUInteger _decoderBufferSize;
     XMNAudioFileProviderEventBlock _fileProviderEventBlock;
     
     int _kq;
@@ -66,6 +65,10 @@ typedef NS_ENUM(uint64_t, event_type) {
     pthread_mutex_t _mutex;
     pthread_t _thread;
 }
+
+@property (nonatomic, assign, readonly) NSUInteger decoderBufferSize;
+
+
 @end
 
 @implementation XMNAudioRunLoop
@@ -96,7 +99,6 @@ typedef NS_ENUM(uint64_t, event_type) {
 #endif /* TARGET_OS_IPHONE */
         
         _renderer = [XMNAudioRender rendererWithBufferTime:kXMNAudioPlayerBufferTime];
-        [_renderer setup];
         
         if ([[NSUserDefaults standardUserDefaults] objectForKey:kXMNAudioPlayerVolumeKey] != nil) {
             [self setVolume:[[NSUserDefaults standardUserDefaults] doubleForKey:kXMNAudioPlayerVolumeKey]];
@@ -105,7 +107,6 @@ typedef NS_ENUM(uint64_t, event_type) {
             [self setVolume:1.0];
         }
         
-        _decoderBufferSize = [[self class] _decoderBufferSize];
         [self setupFileProviderEventBlock];
         [self enableEvents];
         [self setupThread];
@@ -115,6 +116,9 @@ typedef NS_ENUM(uint64_t, event_type) {
 }
 
 - (void)dealloc {
+    
+    
+    [_renderer tearDown];
     
     [self sendEvent:event_finalizing];
     pthread_join(_thread, NULL);
@@ -126,6 +130,7 @@ typedef NS_ENUM(uint64_t, event_type) {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIDeviceProximityStateDidChangeNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:AVAudioSessionRouteChangeNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:AVAudioSessionInterruptionNotification object:[AVAudioSession sharedInstance]];
+    
 }
 
 #pragma mark - Methods
@@ -134,7 +139,6 @@ typedef NS_ENUM(uint64_t, event_type) {
 /// ========================================
 /// @name   Public Methods
 /// ========================================
-
 
 - (void)play {
     
@@ -256,9 +260,9 @@ typedef NS_ENUM(uint64_t, event_type) {
         [player setStatus:XMNAudioPlayerStatusBuffering];
         return;
     }
-    
+   
+    /** 配置playerItem */
     if ([player playbackItem] == nil) {
-        
         [player setPlaybackItem:[XMNAudioPlaybackItem playbackItemWithFileProvider:[player fileProvider]]];
         if (![[player playbackItem] open]) {
             [player setError:[NSError errorWithDomain:kXMNAudioPlayerErrorDomain
@@ -272,8 +276,8 @@ typedef NS_ENUM(uint64_t, event_type) {
     
     if ([player decoder] == nil) {
         [player setDecoder:[XMNAudioDecoder decoderWithPlaybackItem:[player playbackItem]
-                                                           bufferSize:_decoderBufferSize]];
-        if (![[player decoder] setup]) {
+                                                           bufferSize:self.decoderBufferSize]];
+        if (![[player decoder] setup] || ![_renderer setupWithAudioStreamDescription:self.currentPlayer.decoder.outputFormat]) {
             [player setError:[NSError errorWithDomain:kXMNAudioPlayerErrorDomain
                                                    code:XMNAudioPlayerDecodingError
                                                userInfo:nil]];
@@ -427,8 +431,7 @@ static void *event_loop_main(void *info) {
                     default:
                         break;
                 }
-            }
-            else {
+            } else {
                 if (![self handleEvent:[self waitForEvent]
                            withPlayer:&player]) {
                     return;
@@ -461,6 +464,7 @@ static void *event_loop_main(void *info) {
             ([*player status] == XMNAudioPlayerStatusPaused ||
              [*player status] == XMNAudioPlayerStatusIdle ||
              [*player status] == XMNAudioPlayerStatusFinished)) {
+                
                 if ([_renderer isInterrupted]) {
 #if TARGET_OS_IPHONE
 # pragma clang diagnostic push
@@ -730,9 +734,14 @@ static void *event_loop_main(void *info) {
 
 #pragma mark - Class Methods
 
-+ (NSUInteger)_decoderBufferSize {
+- (NSUInteger)decoderBufferSize {
     
-    AudioStreamBasicDescription format = [XMNAudioDecoder defaultOutputFormat];
+    AudioStreamBasicDescription format;
+    if (self.currentPlayer && self.currentPlayer.decoder) {
+        format = [[self.currentPlayer decoder] outputFormat];
+    }else {
+        format = [XMNAudioDecoder defaultOutputFormat];
+    }
     return kXMNAudioPlayerBufferTime * format.mSampleRate * format.mChannelsPerFrame * format.mBitsPerChannel / 8 / 1000;
 }
 

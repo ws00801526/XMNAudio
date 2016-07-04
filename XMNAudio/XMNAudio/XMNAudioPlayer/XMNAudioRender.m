@@ -53,6 +53,7 @@
 #if TARGET_OS_IPHONE
     double _volume;
 #endif /* TARGET_OS_IPHONE */
+    AudioStreamBasicDescription _outputFormat;
 }
 @end
 
@@ -116,11 +117,13 @@
 /// @name   Public Methods
 /// ========================================
 
-- (BOOL)setup {
+- (BOOL)setupWithAudioStreamDescription:(AudioStreamBasicDescription)format {
     
     if (_outputAudioUnit != NULL) {
-        return YES;
+        [self tearDown];
     }
+    
+    _outputFormat = format;
     
     OSStatus status;
     
@@ -158,9 +161,8 @@
         _outputAudioUnit = NULL;
         return NO;
     }
-
-    AudioStreamBasicDescription requestedDesc = [XMNAudioDecoder defaultOutputFormat];
     
+    AudioStreamBasicDescription requestedDesc = _outputFormat;
     status = AudioUnitSetProperty(_outputAudioUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Input, 0, &requestedDesc, sizeof(requestedDesc));
     if (status != noErr) {
         AudioComponentInstanceDispose(_outputAudioUnit);
@@ -195,6 +197,7 @@
     }
     
     if (_buffer == NULL) {
+        
         _bufferByteCount = (_bufferTime * requestedDesc.mSampleRate / 1000) * (requestedDesc.mChannelsPerFrame * requestedDesc.mBitsPerChannel / 8);
         _firstValidByteOffset = 0;
         _validByteCount = 0;
@@ -217,6 +220,7 @@
 
 - (void)renderBytes:(const void *)bytes
              length:(NSUInteger)length {
+    
     if (_outputAudioUnit == NULL) {
         return;
     }
@@ -355,7 +359,7 @@
     pthread_mutex_lock(&_mutex);
     
     [self tearDownWithoutStop];
-    [self setup];
+    [self setupWithAudioStreamDescription:_outputFormat];
     
     if (started) {
         AudioOutputUnitStart(_outputAudioUnit);
