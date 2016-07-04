@@ -11,10 +11,7 @@
 		9702AC841D24F5A0003CBA5C /* lame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9702AC5E1D24F5A0003CBA5C /* lame.framework */; };
 		9702AC851D24F5A0003CBA5C /* interf_dec.h in Headers */ = {isa = PBXBuildFile; fileRef = 9702AC621D24F5A0003CBA5C /* interf_dec.h */; };
 		9702AC861D24F5A0003CBA5C /* interf_enc.h in Headers */ = {isa = PBXBuildFile; fileRef = 9702AC631D24F5A0003CBA5C /* interf_enc.h */; };
-		9702AC871D24F5A0003CBA5C /* dec_if.h in Headers */ = {isa = PBXBuildFile; fileRef = 9702AC651D24F5A0003CBA5C /* dec_if.h */; };
-		9702AC881D24F5A0003CBA5C /* if_rom.h in Headers */ = {isa = PBXBuildFile; fileRef = 9702AC661D24F5A0003CBA5C /* if_rom.h */; };
 		9702AC891D24F5A0003CBA5C /* libopencore-amrnb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9702AC681D24F5A0003CBA5C /* libopencore-amrnb.a */; };
-		9702AC8A1D24F5A0003CBA5C /* libopencore-amrwb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9702AC691D24F5A0003CBA5C /* libopencore-amrwb.a */; };
 		9702AC8B1D24F5A0003CBA5C /* XMNAudioConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 9702AC6A1D24F5A0003CBA5C /* XMNAudioConfiguration.h */; };
 		9702AC8C1D24F5A0003CBA5C /* NSData+XMNMappedFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 9702AC6C1D24F5A0003CBA5C /* NSData+XMNMappedFile.h */; };
 		9702AC8D1D24F5A0003CBA5C /* NSData+XMNMappedFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 9702AC6D1D24F5A0003CBA5C /* NSData+XMNMappedFile.m */; };
@@ -39,6 +36,8 @@
 		9702ACA01D24F5A0003CBA5C /* XMNAudioEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9702AC811D24F5A0003CBA5C /* XMNAudioEncoder.m */; };
 		9702ACA11D24F5A0003CBA5C /* XMNAudioRecorder.h in Headers */ = {isa = PBXBuildFile; fileRef = 9702AC821D24F5A0003CBA5C /* XMNAudioRecorder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9702ACA21D24F5A0003CBA5C /* XMNAudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9702AC831D24F5A0003CBA5C /* XMNAudioRecorder.m */; };
+		970463C01D2665830066AE86 /* XMNAudioDecoder+XMNAMR.h in Headers */ = {isa = PBXBuildFile; fileRef = 970463BE1D2665830066AE86 /* XMNAudioDecoder+XMNAMR.h */; };
+		970463C11D2665830066AE86 /* XMNAudioDecoder+XMNAMR.m in Sources */ = {isa = PBXBuildFile; fileRef = 970463BF1D2665830066AE86 /* XMNAudioDecoder+XMNAMR.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,10 +47,7 @@
 		9702AC5E1D24F5A0003CBA5C /* lame.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = lame.framework; sourceTree = "<group>"; };
 		9702AC621D24F5A0003CBA5C /* interf_dec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = interf_dec.h; sourceTree = "<group>"; };
 		9702AC631D24F5A0003CBA5C /* interf_enc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = interf_enc.h; sourceTree = "<group>"; };
-		9702AC651D24F5A0003CBA5C /* dec_if.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dec_if.h; sourceTree = "<group>"; };
-		9702AC661D24F5A0003CBA5C /* if_rom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = if_rom.h; sourceTree = "<group>"; };
 		9702AC681D24F5A0003CBA5C /* libopencore-amrnb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrnb.a"; sourceTree = "<group>"; };
-		9702AC691D24F5A0003CBA5C /* libopencore-amrwb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrwb.a"; sourceTree = "<group>"; };
 		9702AC6A1D24F5A0003CBA5C /* XMNAudioConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMNAudioConfiguration.h; sourceTree = "<group>"; };
 		9702AC6C1D24F5A0003CBA5C /* NSData+XMNMappedFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+XMNMappedFile.h"; sourceTree = "<group>"; };
 		9702AC6D1D24F5A0003CBA5C /* NSData+XMNMappedFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+XMNMappedFile.m"; sourceTree = "<group>"; };
@@ -76,6 +72,8 @@
 		9702AC811D24F5A0003CBA5C /* XMNAudioEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMNAudioEncoder.m; sourceTree = "<group>"; };
 		9702AC821D24F5A0003CBA5C /* XMNAudioRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMNAudioRecorder.h; sourceTree = "<group>"; };
 		9702AC831D24F5A0003CBA5C /* XMNAudioRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMNAudioRecorder.m; sourceTree = "<group>"; };
+		970463BE1D2665830066AE86 /* XMNAudioDecoder+XMNAMR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XMNAudioDecoder+XMNAMR.h"; sourceTree = "<group>"; };
+		970463BF1D2665830066AE86 /* XMNAudioDecoder+XMNAMR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XMNAudioDecoder+XMNAMR.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +82,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9702AC841D24F5A0003CBA5C /* lame.framework in Frameworks */,
-				9702AC8A1D24F5A0003CBA5C /* libopencore-amrwb.a in Frameworks */,
 				9702AC891D24F5A0003CBA5C /* libopencore-amrnb.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,7 +148,6 @@
 			isa = PBXGroup;
 			children = (
 				9702AC611D24F5A0003CBA5C /* opencore-amrnb */,
-				9702AC641D24F5A0003CBA5C /* opencore-amrwb */,
 			);
 			path = include;
 			sourceTree = "<group>";
@@ -165,20 +161,10 @@
 			path = "opencore-amrnb";
 			sourceTree = "<group>";
 		};
-		9702AC641D24F5A0003CBA5C /* opencore-amrwb */ = {
-			isa = PBXGroup;
-			children = (
-				9702AC651D24F5A0003CBA5C /* dec_if.h */,
-				9702AC661D24F5A0003CBA5C /* if_rom.h */,
-			);
-			path = "opencore-amrwb";
-			sourceTree = "<group>";
-		};
 		9702AC671D24F5A0003CBA5C /* lib */ = {
 			isa = PBXGroup;
 			children = (
 				9702AC681D24F5A0003CBA5C /* libopencore-amrnb.a */,
-				9702AC691D24F5A0003CBA5C /* libopencore-amrwb.a */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -190,6 +176,8 @@
 				9702AC6D1D24F5A0003CBA5C /* NSData+XMNMappedFile.m */,
 				9702AC6E1D24F5A0003CBA5C /* XMNAudioDecoder.h */,
 				9702AC6F1D24F5A0003CBA5C /* XMNAudioDecoder.m */,
+				970463BE1D2665830066AE86 /* XMNAudioDecoder+XMNAMR.h */,
+				970463BF1D2665830066AE86 /* XMNAudioDecoder+XMNAMR.m */,
 				9702AC701D24F5A0003CBA5C /* XMNAudioFile.h */,
 				9702AC711D24F5A0003CBA5C /* XMNAudioFile.m */,
 				9702AC721D24F5A0003CBA5C /* XMNAudioFileProvider.h */,
@@ -229,7 +217,6 @@
 			files = (
 				9702AC981D24F5A0003CBA5C /* XMNAudioPlayer.h in Headers */,
 				9702AC941D24F5A0003CBA5C /* XMNAudioLPCM.h in Headers */,
-				9702AC871D24F5A0003CBA5C /* dec_if.h in Headers */,
 				9702AC861D24F5A0003CBA5C /* interf_enc.h in Headers */,
 				9702AC8E1D24F5A0003CBA5C /* XMNAudioDecoder.h in Headers */,
 				9702AC8B1D24F5A0003CBA5C /* XMNAudioConfiguration.h in Headers */,
@@ -237,7 +224,6 @@
 				9702AC8C1D24F5A0003CBA5C /* NSData+XMNMappedFile.h in Headers */,
 				9702AC9F1D24F5A0003CBA5C /* XMNAudioEncoder.h in Headers */,
 				9702AC901D24F5A0003CBA5C /* XMNAudioFile.h in Headers */,
-				9702AC881D24F5A0003CBA5C /* if_rom.h in Headers */,
 				9702AC921D24F5A0003CBA5C /* XMNAudioFileProvider.h in Headers */,
 				9702AC9D1D24F5A0003CBA5C /* XMNAudioRunLoop.h in Headers */,
 				9702ACA11D24F5A0003CBA5C /* XMNAudioRecorder.h in Headers */,
@@ -245,6 +231,7 @@
 				9702AC851D24F5A0003CBA5C /* interf_dec.h in Headers */,
 				9702AC9A1D24F5A0003CBA5C /* XMNAudioPlayer_XMNPrivate.h in Headers */,
 				9702AC961D24F5A0003CBA5C /* XMNAudioPlaybackItem.h in Headers */,
+				970463C01D2665830066AE86 /* XMNAudioDecoder+XMNAMR.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +310,7 @@
 				9702AC951D24F5A0003CBA5C /* XMNAudioLPCM.m in Sources */,
 				9702AC911D24F5A0003CBA5C /* XMNAudioFile.m in Sources */,
 				9702AC8F1D24F5A0003CBA5C /* XMNAudioDecoder.m in Sources */,
+				970463C11D2665830066AE86 /* XMNAudioDecoder+XMNAMR.m in Sources */,
 				9702ACA21D24F5A0003CBA5C /* XMNAudioRecorder.m in Sources */,
 				9702AC991D24F5A0003CBA5C /* XMNAudioPlayer.m in Sources */,
 				9702AC9E1D24F5A0003CBA5C /* XMNAudioRunLoop.m in Sources */,
@@ -489,6 +477,7 @@
 				9702AC231D24F506003CBA5C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

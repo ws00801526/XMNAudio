@@ -10,11 +10,17 @@
 
 @implementation XMNTestAudioFile
 
-
+- (AudioFileTypeID)fileTypeID {
+    
+    if ([[[self audioFileURL] pathExtension] isEqualToString:@"mp3"]) {
+        return kAudioFileMP3Type;
+    }else if ([[[self audioFileURL] pathExtension] isEqualToString:@"amr"]) {
+        return kAudioFileAMRType;
+    }
+    return 0;
+}
 
 @end
-
-
 
 
 @implementation XMNTestAudioFile (XMNTestFiles)
@@ -33,13 +39,19 @@ static dispatch_once_t localAudioFileToken;
     
     
     dispatch_once(&localAudioFileToken, ^{
-        NSArray *sons = @[@"MP3Sample",@"letitgo_j",@"letitgo_v",@"test"];
+        NSArray<NSString *> *fileNames = @[@"MP3Sample.mp3",
+                                           @"letitgo_j.mp3",
+                                           @"letitgo_v.mp3",
+                                           @"AMR1.amr",
+                                           @"AMR2.amr",
+                                           @"MP3.mp3"];
         NSMutableArray *songs = [NSMutableArray array];
-        for (int i = 0 ; i < sons.count; i++) {
+        
+        [fileNames enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             XMNTestAudioFile *file = [[XMNTestAudioFile alloc] init];
-            file.audioFileURL = [[NSBundle mainBundle] URLForResource:sons[i] withExtension:@"mp3"];
+            file.audioFileURL = [[NSBundle mainBundle] URLForResource:[obj lastPathComponent] withExtension:nil];
             [songs addObject:file];
-        }
+        }];
         localAudioFiles = [songs copy];
     });
     return localAudioFiles;

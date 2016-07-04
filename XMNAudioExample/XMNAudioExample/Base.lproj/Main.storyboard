@@ -18,14 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n1y-4U-eT1">
-                                <rect key="frame" x="326" y="281" width="49" height="38"/>
-                                <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
-                                <state key="normal" title="Play"/>
-                                <connections>
-                                    <action selector="handlePlay:" destination="BYZ-38-t0r" eventType="touchUpInside" id="axF-cd-Owy"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EEi-nx-ZcU">
                                 <rect key="frame" x="216" y="281" width="69" height="38"/>
                                 <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
@@ -34,10 +26,28 @@
                                     <action selector="handleRecord:" destination="BYZ-38-t0r" eventType="touchUpInside" id="484-tY-iod"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n1y-4U-eT1">
+                                <rect key="frame" x="326" y="281" width="49" height="38"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                <state key="normal" title="Play"/>
+                                <connections>
+                                    <action selector="handlePlay:" destination="BYZ-38-t0r" eventType="touchUpInside" id="axF-cd-Owy"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bvp-R8-j0w">
+                                <rect key="frame" x="235" y="213" width="131" height="29"/>
+                                <segments>
+                                    <segment title="CAF"/>
+                                    <segment title="AMR"/>
+                                    <segment title="MP3"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="EEi-nx-ZcU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-50" id="7Lq-nY-8Xm"/>
+                            <constraint firstItem="bvp-R8-j0w" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="F4j-6f-72q"/>
+                            <constraint firstItem="n1y-4U-eT1" firstAttribute="top" secondItem="bvp-R8-j0w" secondAttribute="bottom" constant="40" id="TKo-jy-qAt"/>
                             <constraint firstItem="n1y-4U-eT1" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="g7Y-3u-qn3"/>
                             <constraint firstItem="EEi-nx-ZcU" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="qm2-5I-EuG"/>
                             <constraint firstItem="n1y-4U-eT1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="50" id="zWv-Rg-0SH"/>
@@ -47,6 +57,7 @@
                     <connections>
                         <outlet property="playButton" destination="n1y-4U-eT1" id="FJ1-82-Dvl"/>
                         <outlet property="recordButton" destination="EEi-nx-ZcU" id="a7k-w1-gWu"/>
+                        <outlet property="segmentedControl" destination="bvp-R8-j0w" id="Eb1-Sq-Go6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -149,6 +160,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="PVB-56-vc4"/>
+                    <connections>
+                        <outlet property="playButton" destination="nvF-3r-eGF" id="e98-oO-F7c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xMq-9A-uHD" sceneMemberID="firstResponder"/>
             </objects>
