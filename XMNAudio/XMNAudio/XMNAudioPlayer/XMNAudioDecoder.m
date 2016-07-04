@@ -15,6 +15,8 @@
 #include <AudioToolbox/AudioToolbox.h>
 #include <pthread.h>
 
+#import "XMNAudioDecoder+XMNAMR.h"
+
 /** 声明解码的文件IO结构 */
 typedef struct {
     
@@ -128,6 +130,7 @@ static OSStatus decoder_data_proc(AudioConverterRef inAudioConverter, UInt32 *io
 }
 
 @implementation XMNAudioDecoder
+@synthesize outputFormat = _outputFormat;
 @synthesize playbackItem = _playbackItem;
 @synthesize lpcm = _lpcm;
 
@@ -148,7 +151,17 @@ static OSStatus decoder_data_proc(AudioConverterRef inAudioConverter, UInt32 *io
         _playbackItem = playbackItem;
         _bufferSize = bufferSize;
         _lpcm = [[XMNAudioLPCM alloc] init];
-        _outputFormat = [[self class] defaultOutputFormat];
+        
+        
+        AudioFileTypeID fileTypeID = 0;
+        if ([self.playbackItem.audioFile respondsToSelector:@selector(fileTypeID)]) {
+            fileTypeID = [self.playbackItem.audioFile fileTypeID];
+        }
+        if (fileTypeID == kAudioFileAMRType) {
+            _outputFormat = [[self class] defaultAMROutputFormat];
+        }else {
+            _outputFormat = [[self class] defaultOutputFormat];
+        }
         if (![self setupAudioConverter]) {
             return nil;
         }
@@ -171,6 +184,10 @@ static OSStatus decoder_data_proc(AudioConverterRef inAudioConverter, UInt32 *io
 - (BOOL)setup {
  
     if (_decodingContextInitialized) {
+        return YES;
+    }
+    
+    if (self.playbackItem.fileTypeID == kAudioFileAMRType) {
         return YES;
     }
     
@@ -314,6 +331,18 @@ static OSStatus decoder_data_proc(AudioConverterRef inAudioConverter, UInt32 *io
         return XMNAudioDecoderFailed;
     }
     
+    AudioFileTypeID fileTypeID = [self.playbackItem.audioFile fileTypeID];
+    
+    if (fileTypeID == kAudioFileAMRType) {
+        
+        NSData *data = [self parseAMRDataWithData:(UInt32)16384];
+        [_lpcm writeBytes:[data bytes] length:data.length];
+        if (!data || data.length == 0) {
+            
+            return XMNAudioDecoderEndEncountered;
+        }
+        return XMNAudioDecoderSucceeded;
+    }
     pthread_mutex_lock(&_decodingContext.mutex);
     
     XMNAudioFileProvider *provider = [_playbackItem fileProvider];
@@ -421,10 +450,15 @@ static OSStatus decoder_data_proc(AudioConverterRef inAudioConverter, UInt32 *io
 /// ========================================
 
 - (BOOL)setupAudioConverter {
- 
+    
+    if (self.playbackItem.fileTypeID == kAudioFileAMRType) {
+        _decodingContextInitialized = [self setupAMRDecoder];
+        return _decodingContextInitialized;
+    }
     AudioStreamBasicDescription inputFormat = [_playbackItem fileFormat];
     OSStatus status = AudioConverterNew(&inputFormat, &_outputFormat, &_audioConverter);
     if (status != noErr) {
+
         _audioConverter = NULL;
     }
     return status == noErr;
@@ -456,10 +490,9 @@ static OSStatus decoder_data_proc(AudioConverterRef inAudioConverter, UInt32 *io
 /// @name   Class Methods
 /// ========================================
 
-+ (AudioStreamBasicDescription)defaultOutputFormat
-{
-    static AudioStreamBasicDescription defaultOutputFormat;
++ (AudioStreamBasicDescription)defaultOutputFormat {
     
+    static AudioStreamBasicDescription defaultOutputFormat;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         defaultOutputFormat.mFormatID = kAudioFormatLinearPCM;
@@ -474,7 +507,29 @@ static OSStatus decoder_data_proc(AudioConverterRef inAudioConverter, UInt32 *io
         
         defaultOutputFormat.mFormatFlags = kLinearPCMFormatFlagIsSignedInteger | kLinearPCMFormatFlagIsPacked;
     });
-    
+
     return defaultOutputFormat;
+}
+
++ (AudioStreamBasicDescription)defaultAMROutputFormat {
+    
+    static AudioStreamBasicDescription defaultAMROutputFormat;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        
+        defaultAMROutputFormat.mFormatID = kAudioFormatLinearPCM;
+        defaultAMROutputFormat.mSampleRate = 8000;
+        
+        defaultAMROutputFormat.mBitsPerChannel = 16;
+        defaultAMROutputFormat.mChannelsPerFrame = 1;
+        defaultAMROutputFormat.mBytesPerFrame = defaultAMROutputFormat.mChannelsPerFrame * (defaultAMROutputFormat.mBitsPerChannel / 8);
+        
+        defaultAMROutputFormat.mFramesPerPacket = 1;
+        defaultAMROutputFormat.mBytesPerPacket = defaultAMROutputFormat.mFramesPerPacket * defaultAMROutputFormat.mBytesPerFrame;
+        
+        defaultAMROutputFormat.mFormatFlags = kLinearPCMFormatFlagIsSignedInteger | kLinearPCMFormatFlagIsPacked;
+    });
+    
+    return defaultAMROutputFormat;
 }
 @end

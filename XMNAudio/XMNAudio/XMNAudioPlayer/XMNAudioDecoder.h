@@ -24,12 +24,24 @@ typedef NS_ENUM(NSUInteger, XMNAudioDecoderStatus) {
 @class XMNAudioLPCM;
 @class XMNAudioPlaybackItem;
 @interface XMNAudioDecoder : NSObject
-
+{
+    /** amr文件 */
+    FILE *_file;
+    
+    void *_destate;
+    
+    //帧头标识和帧大小
+    unsigned char _stdFrameHeader;
+    int _stdFrameSize;
+}
 @property (nonatomic, readonly) XMNAudioPlaybackItem *playbackItem;
 @property (nonatomic, readonly) XMNAudioLPCM *lpcm;
 
+@property (nonatomic, assign, readonly) AudioStreamBasicDescription outputFormat;
+
 
 + (AudioStreamBasicDescription)defaultOutputFormat;
++ (AudioStreamBasicDescription)defaultAMROutputFormat;
 
 + (instancetype)decoderWithPlaybackItem:(XMNAudioPlaybackItem *)playbackItem
                              bufferSize:(NSUInteger)bufferSize;
