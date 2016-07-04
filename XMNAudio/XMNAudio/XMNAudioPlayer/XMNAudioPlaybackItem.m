@@ -382,5 +382,13 @@ static SInt64 audio_file_get_size(void *inClientData) {
     return _fileID != NULL;
 }
 
+- (AudioFileTypeID)fileTypeID {
+    
+    AudioFileTypeID fileTypeID = 0;
+    if ([self.audioFile respondsToSelector:@selector(fileTypeID)]) {
+        fileTypeID = [self.audioFile fileTypeID];
+    }
+    return fileTypeID;
+}
 
 @end

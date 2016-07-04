@@ -27,6 +27,7 @@
 @property (nonatomic, readonly) NSData *mappedData;
 
 @property (nonatomic, readonly) AudioFileID fileID;
+@property (nonatomic, readonly) AudioFileTypeID fileTypeID;
 @property (nonatomic, readonly) AudioStreamBasicDescription fileFormat;
 @property (nonatomic, readonly) NSUInteger bitRate;
 @property (nonatomic, readonly) NSUInteger dataOffset;
