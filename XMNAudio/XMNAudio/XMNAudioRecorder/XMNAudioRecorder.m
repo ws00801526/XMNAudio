@@ -53,7 +53,7 @@ static dispatch_once_t onceToken;
     if (self = [super init]) {
         
         /** 需要注意的是 转换成amr的话必须使用8000 */
-        _sampleRate = 8000;
+        _sampleRate = 44100;
         _bufferDurationSeconds = .5f;
         _recording = NO;
         
@@ -120,7 +120,7 @@ static dispatch_once_t onceToken;
 
 - (void)startRecording {
     
-    self.filename = [self randomFilename:8];
+    self.filename = [self randomFilename:24];
     if (self.fileExtension) {
         self.filename = [self.filename stringByAppendingPathExtension:self.fileExtension];
     }
@@ -324,7 +324,7 @@ static dispatch_once_t onceToken;
     
     dispatch_once(&onceToken, ^{
         kXMNAudioDateFormatter = [[NSDateFormatter alloc] init];
-        [kXMNAudioDateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+        [kXMNAudioDateFormatter setDateFormat:@"yyyy-MM-ddHH:mm:ss"];
     });
     
     return [[_XMNMD5(str) stringByAppendingString:@"__"] stringByAppendingString:[kXMNAudioDateFormatter stringFromDate:[NSDate date]]];
@@ -408,7 +408,8 @@ void recordingBufferHandler(void *inputData,
     switch (convertType) {
         case XMNAudioEncoderTypeAMR:
 #ifdef kXMNAudioEncoderAMREnable
-            self.encoder = [[XMNAudioRecorderAMRencoder alloc] init];
+            self.encoder = [[XMNAudioRecorderAMREncoder alloc] init];
+            _sampleRate = 8000;
 #else
             self.encoder = nil;
             XMNLog(@"AMREncoder is not avaliable,you should import libopencore_amr library");
@@ -416,7 +417,8 @@ void recordingBufferHandler(void *inputData,
             break;
         case XMNAudioEncoderTypeMP3:
 #ifdef kXMNAudioEncoderMP3Enable
-            self.encoder = [[XMNAudioRecorderMP3encoder alloc] init];
+            self.encoder = [[XMNAudioRecorderMP3Encoder alloc] init];
+            _sampleRate = 44100;
 #else
             self.encoder = nil;
             XMNLog(@"MP3Encoder is not avaliable,you should import lame library");
@@ -424,7 +426,8 @@ void recordingBufferHandler(void *inputData,
             break;
         case XMNAudioEncoderTypeCAF:
             
-            self.encoder = [[XMNAudioRecorderCAFencoder alloc] init];
+            self.encoder = [[XMNAudioRecorderCAFEncoder alloc] init];
+            _sampleRate = 44100;
             break;
         default:
             self.encoder = nil;
@@ -448,7 +451,6 @@ void recordingBufferHandler(void *inputData,
             
             return @"caf";
         case XMNAudioEncoderTypeMP3:
-            
             return @"mp3";
         default:
             return nil;

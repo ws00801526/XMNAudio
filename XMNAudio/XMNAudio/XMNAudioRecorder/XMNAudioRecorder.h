@@ -32,6 +32,14 @@ typedef NS_ENUM(NSUInteger, XMNAudioRecorderErrorCode) {
 
 @end
 
+
+/**
+ *  XMNAudioRecorder 录音工具
+ *  提供边录音编转码功能
+ *  转码MP3   ->  需要lame.framework 支持
+ *  转码AMR   ->  需要libopencore类库支持
+ *  默认录音文件 caf
+ */
 @interface XMNAudioRecorder : NSObject
 {
     @public
@@ -54,6 +62,8 @@ typedef NS_ENUM(NSUInteger, XMNAudioRecorderErrorCode) {
  *  设置录音采样率  默认 8000
  *  必须在startRecording 之前设置
  *  convertType = XMNAudioConvertTypeAMR 时 必须设置为8000
+ *  其他默认44100
+ *  采样率越高,音频越清晰,录音文件越大
  */
 @property (atomic, assign) NSUInteger sampleRate;
 

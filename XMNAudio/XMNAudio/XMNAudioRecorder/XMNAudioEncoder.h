@@ -58,18 +58,18 @@ completedRecordWithError:(NSError * _Nullable)error;
 @end
 
 #ifdef kXMNAudioEncoderMP3Enable
-@interface XMNAudioRecorderMP3encoder : NSObject <XMNAudioEncoder>
+@interface XMNAudioRecorderMP3Encoder : NSObject <XMNAudioEncoder>
 
 @end
 #endif
 
 #ifdef kXMNAudioEncoderAMREnable
-@interface XMNAudioRecorderAMRencoder : NSObject <XMNAudioEncoder>
+@interface XMNAudioRecorderAMREncoder : NSObject <XMNAudioEncoder>
 
 @end
 #endif
 
-@interface XMNAudioRecorderCAFencoder : NSObject <XMNAudioEncoder>
+@interface XMNAudioRecorderCAFEncoder : NSObject <XMNAudioEncoder>
 
 @end
 

@@ -10,9 +10,12 @@
 #import "XMNAudioRecorder.h"
 #import "XMNAudioConfiguration.h"
 
-//amr编码
+
+
+#pragma mark - MP3 Encoder
+
 #ifdef kXMNAudioEncoderMP3Enable
-@implementation XMNAudioRecorderMP3encoder
+@implementation XMNAudioRecorderMP3Encoder
 {
     FILE *_file;
     lame_t _lame;
@@ -27,8 +30,8 @@
     // mp3压缩参数
     _lame = lame_init();
     lame_set_num_channels(_lame, 1);
-    lame_set_in_samplerate(_lame, 8000);
-    lame_set_out_samplerate(_lame, 8000);
+    lame_set_in_samplerate(_lame, (int)recorder.sampleRate);
+    lame_set_out_samplerate(_lame, (int)recorder.sampleRate);
     lame_set_brate(_lame, 128);
     lame_set_mode(_lame, 1);
     lame_set_quality(_lame, 2);
@@ -127,7 +130,6 @@ inputPacketsDesc:(const AudioStreamPacketDescription *)inputPacketsDesc {
     if (_file) {
         fclose(_file);
     }
-    CFRelease(_file);
     
     if (_lame) {
         
@@ -141,9 +143,12 @@ inputPacketsDesc:(const AudioStreamPacketDescription *)inputPacketsDesc {
 
 #endif
 
+
+#pragma mark - AMR Encoder
+
 #ifdef kXMNAudioEncoderAMREnable
 
-@implementation XMNAudioRecorderAMRencoder
+@implementation XMNAudioRecorderAMREncoder
 {
     FILE *_file;
 
@@ -223,8 +228,7 @@ inputPacketsDesc:(const AudioStreamPacketDescription *)inputPacketsDesc {
         return YES;
     }
     if (pcmLen%2!=0){
-        pcmLen--; //防止意外，如果不是偶数，情愿减去最后一个字节。
-        //        NSLog(@"不是偶数");
+        pcmLen--; //防止意外，如果不是偶数，减去最后一个字节。
     }
     
     unsigned char * bytes = malloc(pcmLen+320);
@@ -317,22 +321,24 @@ inputPacketsDesc:(const AudioStreamPacketDescription *)inputPacketsDesc {
 
 #endif
 
-@implementation XMNAudioRecorderCAFencoder
+#pragma mark - CAF Encoder
+
+@implementation XMNAudioRecorderCAFEncoder
 {
     AudioFileID _recordFile;
     SInt64      _recordPacketCount;
 }
 
 
-- (BOOL)recorder:(XMNAudioRecorder *)recorder createFileAtPath:(NSString *)filePath {
+- (BOOL)recorder:(XMNAudioRecorder *)recorder
+createFileAtPath:(NSString *)filePath {
     
     //建立文件
     _recordPacketCount = 0;
     CFURLRef url = CFURLCreateWithString(kCFAllocatorDefault, (CFStringRef)filePath, NULL);
     OSStatus err = AudioFileCreateWithURL(url, kAudioFileCAFType, (const AudioStreamBasicDescription	*)(&(recorder->_recordFormat)), kAudioFileFlags_EraseFile, &_recordFile);
-    CFRelease(url);
-    
-    return err==noErr;
+    url ? CFRelease(url) : nil;
+    return err == noErr;
 }
 
 - (BOOL)recorder:(XMNAudioRecorder *)recorder
