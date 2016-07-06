@@ -38,6 +38,8 @@
 		9702ACA21D24F5A0003CBA5C /* XMNAudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9702AC831D24F5A0003CBA5C /* XMNAudioRecorder.m */; };
 		970463C01D2665830066AE86 /* XMNAudioDecoder+XMNAMR.h in Headers */ = {isa = PBXBuildFile; fileRef = 970463BE1D2665830066AE86 /* XMNAudioDecoder+XMNAMR.h */; };
 		970463C11D2665830066AE86 /* XMNAudioDecoder+XMNAMR.m in Sources */ = {isa = PBXBuildFile; fileRef = 970463BF1D2665830066AE86 /* XMNAudioDecoder+XMNAMR.m */; };
+		978F2BAB1D2CB9C300B259FE /* XMNHTTPRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 978F2BA91D2CB9C300B259FE /* XMNHTTPRequest.h */; };
+		978F2BAC1D2CB9C300B259FE /* XMNHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 978F2BAA1D2CB9C300B259FE /* XMNHTTPRequest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +76,8 @@
 		9702AC831D24F5A0003CBA5C /* XMNAudioRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMNAudioRecorder.m; sourceTree = "<group>"; };
 		970463BE1D2665830066AE86 /* XMNAudioDecoder+XMNAMR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XMNAudioDecoder+XMNAMR.h"; sourceTree = "<group>"; };
 		970463BF1D2665830066AE86 /* XMNAudioDecoder+XMNAMR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XMNAudioDecoder+XMNAMR.m"; sourceTree = "<group>"; };
+		978F2BA91D2CB9C300B259FE /* XMNHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMNHTTPRequest.h; sourceTree = "<group>"; };
+		978F2BAA1D2CB9C300B259FE /* XMNHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMNHTTPRequest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +190,8 @@
 				9702AC751D24F5A0003CBA5C /* XMNAudioLPCM.m */,
 				9702AC761D24F5A0003CBA5C /* XMNAudioPlaybackItem.h */,
 				9702AC771D24F5A0003CBA5C /* XMNAudioPlaybackItem.m */,
+				978F2BA91D2CB9C300B259FE /* XMNHTTPRequest.h */,
+				978F2BAA1D2CB9C300B259FE /* XMNHTTPRequest.m */,
 				9702AC781D24F5A0003CBA5C /* XMNAudioPlayer.h */,
 				9702AC791D24F5A0003CBA5C /* XMNAudioPlayer.m */,
 				9702AC7A1D24F5A0003CBA5C /* XMNAudioPlayer_XMNPrivate.h */,
@@ -223,6 +229,7 @@
 				9702AC1D1D24F506003CBA5C /* XMNAudio.h in Headers */,
 				9702AC8C1D24F5A0003CBA5C /* NSData+XMNMappedFile.h in Headers */,
 				9702AC9F1D24F5A0003CBA5C /* XMNAudioEncoder.h in Headers */,
+				978F2BAB1D2CB9C300B259FE /* XMNHTTPRequest.h in Headers */,
 				9702AC901D24F5A0003CBA5C /* XMNAudioFile.h in Headers */,
 				9702AC921D24F5A0003CBA5C /* XMNAudioFileProvider.h in Headers */,
 				9702AC9D1D24F5A0003CBA5C /* XMNAudioRunLoop.h in Headers */,
@@ -306,6 +313,7 @@
 				9702AC971D24F5A0003CBA5C /* XMNAudioPlaybackItem.m in Sources */,
 				9702AC8D1D24F5A0003CBA5C /* NSData+XMNMappedFile.m in Sources */,
 				9702ACA01D24F5A0003CBA5C /* XMNAudioEncoder.m in Sources */,
+				978F2BAC1D2CB9C300B259FE /* XMNHTTPRequest.m in Sources */,
 				9702AC931D24F5A0003CBA5C /* XMNAudioFileProvider.m in Sources */,
 				9702AC951D24F5A0003CBA5C /* XMNAudioLPCM.m in Sources */,
 				9702AC911D24F5A0003CBA5C /* XMNAudioFile.m in Sources */,

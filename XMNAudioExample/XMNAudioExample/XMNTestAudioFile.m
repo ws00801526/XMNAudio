@@ -52,6 +52,10 @@ static dispatch_once_t localAudioFileToken;
             file.audioFileURL = [[NSBundle mainBundle] URLForResource:[obj lastPathComponent] withExtension:nil];
             [songs addObject:file];
         }];
+        
+        XMNTestAudioFile *audioFile = [[XMNTestAudioFile alloc] init];
+        audioFile.audioFileURL = [NSURL URLWithString:@"https://raw.githubusercontent.com/ws00801526/XMNAudio/master/XMNAudioExample/XMNAudioExample/letitgo_v.mp3"];
+        [songs addObject:audioFile];
         localAudioFiles = [songs copy];
     });
     return localAudioFiles;

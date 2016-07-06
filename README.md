@@ -29,3 +29,8 @@
 
 	self.player = [[XMNAudioPlayer alloc] initWithAudioFile:self.songs[self.index]];
     [self.player play];
+    
+    
+###TODO
+
+1. 播放网络文件  -- done
