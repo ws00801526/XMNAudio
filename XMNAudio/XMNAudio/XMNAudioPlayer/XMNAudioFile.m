@@ -7,7 +7,6 @@
 //
 
 #import "XMNAudioFile.h"
-#import "interf_dec.h"
 
 @implementation XMNAudioFilePreprofessor
 
