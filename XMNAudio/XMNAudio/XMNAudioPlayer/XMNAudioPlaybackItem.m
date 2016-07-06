@@ -357,10 +357,13 @@ static SInt64 audio_file_get_size(void *inClientData) {
 
 #pragma mark - Getters
 
-//- (XMNAudioFilePreprofessor *)filePreprocessor {
-//    
-//    return [self.audioFile audioFilePreprocessor];
-//}
+- (XMNAudioFilePreprofessor *)filePreprocessor {
+    
+    if (![self.audioFile respondsToSelector:@selector(audioFilePreprocessor)]) {
+        return nil;
+    }
+    return [self.audioFile audioFilePreprocessor];
+}
 
 - (id <XMNAudioFile>)audioFile {
     

@@ -287,7 +287,6 @@ static BOOL gLastProviderIsFinished = NO;
         }
         _sha256Ctx = (CC_SHA256_CTX *)malloc(sizeof(CC_SHA256_CTX));
         CC_SHA256_Init(_sha256Ctx);
-
     }
     return self;
 }

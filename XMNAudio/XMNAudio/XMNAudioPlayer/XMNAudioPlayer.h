@@ -22,7 +22,7 @@ typedef NS_ENUM(NSUInteger, XMNAudioPlayerStatus) {
 };
 
 typedef NS_ENUM(NSInteger, XMNAudioPlayerErrorCode) {
-    XMNAudioPlayerUnknownError,
+    XMNAudioPlayerUnknownError = 0,
     XMNAudioPlayerNetworkError,
     XMNAudioPlayerDecodingError
 };
