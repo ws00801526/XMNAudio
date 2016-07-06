@@ -74,7 +74,7 @@ typedef NS_ENUM(NSUInteger, XMNAudioRecorderErrorCode) {
 @property (atomic, assign) double bufferDurationSeconds;
 
 /** 录音转换类型 */
-@property (nonatomic, assign) XMNAudioEncoderType convertType;
+@property (nonatomic, assign) XMNAudioEncoderType encoderType;
 
 /** 录音回调代理 */
 @property (nonatomic, weak, nullable)   id<XMNAudioRecorderDelegate> delegate;

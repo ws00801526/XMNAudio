@@ -27,6 +27,7 @@
     
     [super viewDidLoad];
     self.recorder = [[XMNAudioRecorder alloc] init];
+    /** 设置不同的Encoder 可以录制不同文件 */
 }
 
 - (IBAction)handleRecord:(UIButton *)sender {
@@ -38,7 +39,7 @@
         self.segmentedControl.enabled = YES;
         return;
     }
-    [self.recorder setConvertType:self.segmentedControl.selectedSegmentIndex];
+    [self.recorder setEncoderType:self.segmentedControl.selectedSegmentIndex];
     [self.recorder startRecording];
     [sender setTitle:@"Stop Record" forState:UIControlStateNormal];
     self.segmentedControl.enabled = NO;

@@ -62,7 +62,7 @@ static dispatch_once_t onceToken;
         /** 坚挺打断通知,打断时停止录音 */
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleAudioSessionInterruption:) name:AVAudioSessionInterruptionNotification object:[AVAudioSession sharedInstance]];
         
-        self.convertType = XMNAudioEncoderTypeCAF;
+        self.encoderType = XMNAudioEncoderTypeCAF;
         
         _filePath = [[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"com.XMFraker.XMNAudioRecorder"] copy];
         
@@ -402,9 +402,9 @@ void recordingBufferHandler(void *inputData,
 
 #pragma mark - Setters
 
-- (void)setConvertType:(XMNAudioEncoderType)convertType {
+- (void)setEncoderType:(XMNAudioEncoderType)convertType {
     
-    _convertType =  convertType;
+    _encoderType =  convertType;
     switch (convertType) {
         case XMNAudioEncoderTypeAMR:
 #ifdef kXMNAudioEncoderAMREnable
@@ -444,7 +444,7 @@ void recordingBufferHandler(void *inputData,
 
 - (NSString *)fileExtension {
     
-    switch (self.convertType) {
+    switch (self.encoderType) {
         case XMNAudioEncoderTypeAMR:
             return @"amr";
         case XMNAudioEncoderTypeCAF:
