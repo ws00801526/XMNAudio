@@ -13,6 +13,12 @@
 4. 播放AMR文件时,需要指定AMR文件的fileTypeID方便使用AMR解码播放,否则可能无法播放
 5. MP3,CAF采样率默认44100  可在开始录音前手动修改
 6. AMR采样率必须为8000
+7. 真机运行后显示image not match 的类库编译错误 解决方法如下
+	* 删除XMNAudioExample 下的XMNAudio.framework类库
+	* 重新编译下XMNAudio工程,生成真机的XMNAudio.framework类库
+	* XMNAudioExample工程中重新添加下真机XMNAudio.framework类库,即可
+	
+	![示例图](http://7xlt1j.com1.z0.glb.clouddn.com/8607E7C1-5543-442B-B3C1-C39DD34EEB88.png)
 ### 使用方法
 
 
