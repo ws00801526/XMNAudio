@@ -4,8 +4,10 @@
 ### 注意
 
 1. AMR编码解码 基于 libopencore
+[bitcode编译方法](http://blog.csdn.net/chaoyuan899/article/details/51722496)
 
 2. MP3编码 基于 lame类库
+[bitcode版本编译](https://github.com/wuqiong/mp3lame-for-iOS)
 
 3. libopencore 不支持bitcode 需要的话可以自行前往编译
 4. 播放AMR文件时,需要指定AMR文件的fileTypeID方便使用AMR解码播放,否则可能无法播放
@@ -34,3 +36,4 @@
 ###TODO
 
 1. 播放网络文件  -- done
+2. 增加bitcode支持 -- done
