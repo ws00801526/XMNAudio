@@ -11,6 +11,7 @@
 #import <XMNAudio/XMNAudio.h>
 
 #import "XMNTestAudioFile.h"
+#import "XMNAudioButton.h"
 
 @interface XMNAudioPlayerController ()
 
@@ -20,8 +21,10 @@
 @property (nonatomic, copy, readonly)   NSArray *songs;
 @property (nonatomic, assign) BOOL remote;
 
-
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
+
+@property (nonatomic, strong) XMNAudioButton *audioButton;
+
 
 @end
 
@@ -31,6 +34,18 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
+    self.audioButton = [[XMNAudioButton alloc] init];
+    self.audioButton.frame = CGRectMake(50, 100, 100, 50);
+    self.audioButton.backgroundColor = [UIColor greenColor];
+    [self.view addSubview:self.audioButton];
+    
+    [self.audioButton addTarget:self action:@selector(playButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)playButtonAction:(XMNAudioButton *)audioButton {
+    
+    [audioButton playWithAudioFile:[[XMNTestAudioFile localAudioFiles] lastObject]];
 }
 
 - (IBAction)handlePlay:(UIButton *)sender {

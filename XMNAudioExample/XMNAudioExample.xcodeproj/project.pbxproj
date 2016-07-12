@@ -21,6 +21,7 @@
 		9702ACB91D24FFDA003CBA5C /* AMR1.amr in Resources */ = {isa = PBXBuildFile; fileRef = 9702ACB81D24FFD7003CBA5C /* AMR1.amr */; };
 		97037AEF1D29F75B00CA1114 /* MP3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 97037AEE1D29F75B00CA1114 /* MP3.mp3 */; };
 		979862991D266B1300566F17 /* AMR2.amr in Resources */ = {isa = PBXBuildFile; fileRef = 979862981D266B1300566F17 /* AMR2.amr */; };
+		97D8D63C1D34F1D900EE1B86 /* XMNAudioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D8D63B1D34F1D900EE1B86 /* XMNAudioButton.m */; };
 		97FB41EA1D332D5F00CB0B62 /* XMNAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97FB41E91D332D5F00CB0B62 /* XMNAudio.framework */; };
 		97FB41EB1D332D5F00CB0B62 /* XMNAudio.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 97FB41E91D332D5F00CB0B62 /* XMNAudio.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -60,6 +61,8 @@
 		9702ACB81D24FFD7003CBA5C /* AMR1.amr */ = {isa = PBXFileReference; lastKnownFileType = file; path = AMR1.amr; sourceTree = "<group>"; };
 		97037AEE1D29F75B00CA1114 /* MP3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MP3.mp3; sourceTree = "<group>"; };
 		979862981D266B1300566F17 /* AMR2.amr */ = {isa = PBXFileReference; lastKnownFileType = file; path = AMR2.amr; sourceTree = "<group>"; };
+		97D8D63A1D34F1D900EE1B86 /* XMNAudioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMNAudioButton.h; sourceTree = "<group>"; };
+		97D8D63B1D34F1D900EE1B86 /* XMNAudioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMNAudioButton.m; sourceTree = "<group>"; };
 		97FB41E91D332D5F00CB0B62 /* XMNAudio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = XMNAudio.framework; path = "/Users/XMFraker/Library/Developer/Xcode/DerivedData/XMNAudio-ffgndaywycsspjdgboxcngfmbraq/Build/Products/Debug-iphoneos/XMNAudio.framework"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
@@ -103,6 +106,8 @@
 				9702ACA71D24F631003CBA5C /* XMNAudioPlayerController.m */,
 				9702ACAD1D24F9F1003CBA5C /* XMNTestAudioFile.h */,
 				9702ACAE1D24F9F1003CBA5C /* XMNTestAudioFile.m */,
+				97D8D63A1D34F1D900EE1B86 /* XMNAudioButton.h */,
+				97D8D63B1D34F1D900EE1B86 /* XMNAudioButton.m */,
 				9702AC4E1D24F597003CBA5C /* Main.storyboard */,
 				9702AC511D24F597003CBA5C /* Assets.xcassets */,
 				9702AC531D24F597003CBA5C /* LaunchScreen.storyboard */,
@@ -207,6 +212,7 @@
 				9702AC4A1D24F597003CBA5C /* AppDelegate.m in Sources */,
 				9702AC471D24F597003CBA5C /* main.m in Sources */,
 				9702ACAF1D24F9F1003CBA5C /* XMNTestAudioFile.m in Sources */,
+				97D8D63C1D34F1D900EE1B86 /* XMNAudioButton.m in Sources */,
 				9702ACA81D24F631003CBA5C /* XMNAudioPlayerController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
