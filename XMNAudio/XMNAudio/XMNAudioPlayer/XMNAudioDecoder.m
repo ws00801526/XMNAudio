@@ -121,6 +121,7 @@ static OSStatus decoder_data_proc(AudioConverterRef inAudioConverter, UInt32 *io
     if (outDataPacketDescription != NULL) {
         if (outPacketDescriptions!=NULL) {
             *outDataPacketDescription = outPacketDescriptions;
+            free(outPacketDescriptions);
         }else {
             *outDataPacketDescription = afio->pktDescs;
         }

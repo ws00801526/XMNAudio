@@ -305,12 +305,12 @@ static BOOL gLastProviderIsFinished = NO;
 - (void)dealloc {
     
     NSLog(@"%@  dealloc",NSStringFromClass([self class]));
-    @synchronized(_request) {
-        [_request setCompletedBlock:NULL];
-        [_request setProgressBlock:NULL];
-        [_request setDidReceiveResponseBlock:NULL];
-        [_request setDidReceiveDataBlock:NULL];
-        
+    
+    @synchronized (_request) {
+        [_request setCompletedBlock:nil];
+        [_request setDidReceiveDataBlock:nil];
+        [_request setDidReceiveResponseBlock:nil];
+        [_request setProgressBlock:nil];
         [_request cancel];
     }
     
@@ -328,7 +328,6 @@ static BOOL gLastProviderIsFinished = NO;
 
 
 #pragma mark - Request Methods
-
 
 - (void)createRequest {
     
@@ -370,11 +369,10 @@ static BOOL gLastProviderIsFinished = NO;
 
 - (void)handleRequestCompletedWithError:(NSError *)error {
     
-    if ([_request isFailed] ||
+    if (error || [_request isFailed] ||
         !([_request statusCode] >= 200 && [_request statusCode] < 300)) {
         _failed = YES;
-    }
-    else {
+    } else {
         _requestCompleted = YES;
         [_mappedData xmn_synchronizeMappedFile];
     }

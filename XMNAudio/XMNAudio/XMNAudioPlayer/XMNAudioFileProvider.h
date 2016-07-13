@@ -47,5 +47,5 @@ typedef void (^XMNAudioFileProviderEventBlock)(void);
 /** 是否文件是否加载完毕 */
 @property (nonatomic, readonly, getter=isFinished) BOOL finished;
 
-
 @end
+
