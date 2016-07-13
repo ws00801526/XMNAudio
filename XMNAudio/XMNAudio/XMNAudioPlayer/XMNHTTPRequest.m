@@ -24,6 +24,7 @@ static  NSURLSession *kXMNAudioDownloadSession;
     NSUInteger    _receivedLength;
     NSUInteger    _lastReceivedLength;
     NSTimeInterval   _updateFrequency;
+    NSURLSession *_session;
 }
 
 @property (nonatomic, strong) NSURLSessionDataTask *task;
@@ -70,28 +71,30 @@ static  NSURLSession *kXMNAudioDownloadSession;
         _timeoutInterval = [[self class] defaultTimeoutInterval];
         _updateFrequency = [[self class] defaultUpdateFrequency];
         
-        static dispatch_once_t onceToken;
-        dispatch_once(&onceToken, ^{
-            NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-            configuration.timeoutIntervalForRequest = _timeoutInterval;
-            kXMNAudioDownloadSession = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:[[NSOperationQueue alloc] init]];
-        });
+//        static dispatch_once_t onceToken;
+//        dispatch_once(&onceToken, ^{
+//            
+//        });
+        NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+        configuration.timeoutIntervalForRequest = _timeoutInterval;
+        _session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:[[NSOperationQueue alloc] init]];
     }
     return self;
 }
 
+
 - (void)dealloc {
     
+    NSLog(@"%@  dealloc",NSStringFromClass([self class]));
     [self cancel];
 }
-
 
 
 #pragma mark - Methods
 
 - (void)start {
     
-    if (!kXMNAudioDownloadSession) {
+    if (!_session) {
         return;
     }
     
@@ -110,7 +113,7 @@ static  NSURLSession *kXMNAudioDownloadSession;
         _bufferData = [NSMutableData data];
     }
     
-    self.task = [kXMNAudioDownloadSession dataTaskWithRequest:request];
+    self.task = [_session dataTaskWithRequest:request];
     [self.task resume];
     _lastTime = CFAbsoluteTimeGetCurrent();
     _downloadSpeed = _receivedLength = _lastReceivedLength = 0;
@@ -181,7 +184,6 @@ static  NSURLSession *kXMNAudioDownloadSession;
     NSData *blockData = [NSData dataWithBytesNoCopy:(void *)[data bytes] length:[data length] freeWhenDone:NO];
     @synchronized (self) {
         self.didReceiveDataBlock ? self.didReceiveDataBlock(blockData) : nil;
-//        _bufferData = nil;
     }
 }
 
