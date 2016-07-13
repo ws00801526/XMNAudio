@@ -80,6 +80,12 @@ NSString *const kXMNAudioPlayerErrorDomain = @"com.XMFraker.XMNAudio.XMNAudioPla
     return self;
 }
 
+
+- (void)dealloc {
+    
+    NSLog(@"%@  dealloc",NSStringFromClass([self class]));
+}
+
 #pragma mark - Methods
 
 - (void)play {
