@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
 
 @property (nonatomic, strong) XMNAudioButton *audioButton;
+@property (nonatomic, strong) XMNAudioButton *audioButton2;
 
 
 @end
@@ -36,14 +37,25 @@
     [super viewDidLoad];
     
     self.audioButton = [[XMNAudioButton alloc] init];
-    self.audioButton.frame = CGRectMake(50, 100, 100, 50);
+    self.audioButton.frame = CGRectMake(50, 350, 100, 50);
     self.audioButton.backgroundColor = [UIColor greenColor];
     [self.view addSubview:self.audioButton];
     
+    self.audioButton2 = [[XMNAudioButton alloc] init];
+    self.audioButton2.frame = CGRectMake(190, 350, 100, 50);
+    self.audioButton2.backgroundColor = [UIColor redColor];
+    [self.view addSubview:self.audioButton2];
+    
     [self.audioButton addTarget:self action:@selector(playButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.audioButton2 addTarget:self action:@selector(playButtonAction2:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)playButtonAction:(XMNAudioButton *)audioButton {
+    
+    [audioButton playWithAudioFile:[[XMNTestAudioFile localAudioFiles] lastObject]];
+}
+
+- (void)playButtonAction2:(XMNAudioButton *)audioButton {
     
     [audioButton playWithAudioFile:[[XMNTestAudioFile localAudioFiles] lastObject]];
 }

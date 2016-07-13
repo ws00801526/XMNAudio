@@ -30,7 +30,6 @@
         
         [self addSubview:self.statusImageView];
         [self addSubview:self.indicatorView];
-        
     }
     return self;
 }
@@ -45,7 +44,10 @@
 
 #pragma mark - Override Methods
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary<NSString *,id> *)change
+                       context:(void *)context {
     
     if (object == self.player && [keyPath isEqualToString:@"status"]) {
         
@@ -60,19 +62,17 @@
 - (void)playWithAudioFile:(id<XMNAudioFile>)audioFile {
     
     if (self.player) {
-        [self.player removeObserver:self forKeyPath:@"status"];
-        [self.player stop];
-        self.player = nil;
+        self.audioStatus = XMNAudioPlayerStatusFinished;
+    }else {
+        self.player = [XMNAudioPlayer playerWithAudioFile:audioFile];
+        [self.player addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
+        [self.player play];
     }
-    self.player = [XMNAudioPlayer playerWithAudioFile:audioFile];
-    [self.player addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
-    [self.player play];
 }
-
 
 - (void)stop {
     
-    [self.player stop];
+    self.audioStatus = XMNAudioPlayerStatusFinished;
 }
 
 #pragma mark - Setters
@@ -106,13 +106,17 @@
                 self.statusImageView.highlighted = NO;
                 [self.indicatorView stopAnimating];
                 self.indicatorView.hidden = YES;
+                
+                if (self.player) {
+                    [self.player stop];
+                    [self.player removeObserver:self forKeyPath:@"status"];
+                    self.player = nil;
+                }
             }
                 break;
         }
     }
 }
-
-#pragma mark - Getters
 
 #pragma mark - Getters
 
