@@ -40,7 +40,21 @@
 		970463C11D2665830066AE86 /* XMNAudioDecoder+XMNAMR.m in Sources */ = {isa = PBXBuildFile; fileRef = 970463BF1D2665830066AE86 /* XMNAudioDecoder+XMNAMR.m */; };
 		978F2BAB1D2CB9C300B259FE /* XMNHTTPRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 978F2BA91D2CB9C300B259FE /* XMNHTTPRequest.h */; };
 		978F2BAC1D2CB9C300B259FE /* XMNHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 978F2BAA1D2CB9C300B259FE /* XMNHTTPRequest.m */; };
+		9791EA0D1D373A9900A21ADA /* lame.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9702AC5E1D24F5A0003CBA5C /* lame.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9791EA0C1D373A9000A21ADA /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9791EA0D1D373A9900A21ADA /* lame.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		9702AC191D24F506003CBA5C /* XMNAudio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XMNAudio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -253,6 +267,7 @@
 				9702AC151D24F506003CBA5C /* Frameworks */,
 				9702AC161D24F506003CBA5C /* Headers */,
 				9702AC171D24F506003CBA5C /* Resources */,
+				9791EA0C1D373A9000A21ADA /* CopyFiles */,
 			);
 			buildRules = (
 			);

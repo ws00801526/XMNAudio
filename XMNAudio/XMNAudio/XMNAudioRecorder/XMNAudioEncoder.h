@@ -31,7 +31,6 @@ typedef NS_ENUM(NSUInteger, XMNAudioEncoderType) {
     XMNAudioEncoderTypeOTHER,
 };
 
-
 @class XMNAudioRecorder;
 /** 录音文件转码器,将录音好的录音格式转化成对应的录音格式 */
 @protocol XMNAudioEncoder <NSObject>
