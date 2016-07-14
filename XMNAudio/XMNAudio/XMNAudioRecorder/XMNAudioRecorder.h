@@ -20,6 +20,12 @@ typedef NS_ENUM(NSUInteger, XMNAudioRecorderErrorCode) {
     XMNAudioRecorderErrorCodeQueue,
     /** AudioSession相关错误 */
     XMNAudioRecorderErrorCodeSession,
+    /** 录音时长太短 */
+    XMNAudioRecorderErrorCodeTooShort,
+    /** 录音时长太长 */
+    XMNAudioRecorderErrorCodeTooLong,
+    /** 录音文件太大 */
+    XMNAudioRecorderErrorCodeFileTooLarge
 };
 
 @class XMNAudioRecorder;
@@ -49,10 +55,14 @@ typedef NS_ENUM(NSUInteger, XMNAudioRecorderErrorCode) {
     AudioStreamBasicDescription	_recordFormat;
 }
 
-/** 最大录音文件大小 */
+/** 最大录音文件大小
+ *  设置此值后,如果录音文件大小超过此值,默认会自动结束录音 ,回调recordFinish
+ */
 @property (nonatomic, assign) unsigned long maxFileSize;
 
-/** 最大录音时长 */
+/** 最大录音时长
+ *  设置此值后,如果超过最大录音时间,默认会自动结束录音 ,回调recordFinish
+ **/
 @property (nonatomic, assign) double maxSeconds;
 
 /** 判断是否正在录音 */
@@ -69,6 +79,7 @@ typedef NS_ENUM(NSUInteger, XMNAudioRecorderErrorCode) {
 
 /**
  *  buffer 缓冲几秒的录音数据 默认.5f
+ *  此属性会作为最小录音时长,如果录音时长小于此值时,会回到recordErrorBlock
  *  必须在startRecording 之前设置
  */
 @property (atomic, assign) double bufferDurationSeconds;
@@ -86,6 +97,9 @@ typedef NS_ENUM(NSUInteger, XMNAudioRecorderErrorCode) {
 
 /** 录音的文件名 */
 @property (nonatomic, copy, readonly, nonnull)   NSString *filename;
+
+/** 录音文件时长 */
+@property (nonatomic, assign, readonly) NSTimeInterval seconds;
 
 
 /** 录音成功后的block回调

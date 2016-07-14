@@ -43,6 +43,8 @@ static dispatch_once_t onceToken;
 @property (nonatomic, copy)   NSString *filename;
 @property (nonatomic, copy, readonly)   NSString *fileExtension;
 
+@property (nonatomic, assign) NSTimeInterval startTimeInterval;
+@property (nonatomic, assign) NSTimeInterval seconds;
 
 @end
 
@@ -201,6 +203,7 @@ static dispatch_once_t onceToken;
     audioQueueOpertaion(AudioQueueStart(_audioQueue, NULL), @"音频队列开始录音失败");
     
     _recording = YES;
+    self.startTimeInterval = [[NSDate date] timeIntervalSinceReferenceDate];
 }
 
 - (void)stopRecording {
@@ -208,7 +211,8 @@ static dispatch_once_t onceToken;
     /** 停止录音 */
     if (self.isRecording) {
         _recording = NO;
-        
+        self.seconds = [[NSDate date] timeIntervalSinceReferenceDate] - self.startTimeInterval;
+
         //停止录音队列和移除缓冲区,以及关闭session，这里无需考虑成功与否
         AudioQueueStop(_audioQueue, true);
         AudioQueueDispose(_audioQueue, true);
@@ -221,6 +225,11 @@ static dispatch_once_t onceToken;
                 canContinue = NO;
             }
         });
+        
+        if (self.seconds < self.bufferDurationSeconds) {
+            [self handleErrorWithCode:XMNAudioRecorderErrorCodeTooShort errorDesc:@"录音文件时长太短"];
+            canContinue = NO;
+        }
         
         if (canContinue) {
             
