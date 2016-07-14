@@ -35,7 +35,7 @@
     if (self.recorder.isRecording) {
         [self.recorder stopRecording];
         [sender setTitle:@"Record" forState:UIControlStateNormal];
-        NSLog(@"Record Finished :%@",[[self.recorder filePath] stringByAppendingPathComponent:[self.recorder filename]]);
+        NSLog(@"Record Finished :%@\ntime seconds :%f",[[self.recorder filePath] stringByAppendingPathComponent:[self.recorder filename]],self.recorder.seconds);
         self.segmentedControl.enabled = YES;
         return;
     }
