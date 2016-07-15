@@ -286,6 +286,7 @@ inputPacketsDesc:(const AudioStreamPacketDescription *)inputPacketsDesc {
     if (_destate){
         /** 关闭amr写入句柄 */
         Encoder_Interface_exit((void*)_destate);
+        _destate = 0;
     }
     
     /** 释放内存 */

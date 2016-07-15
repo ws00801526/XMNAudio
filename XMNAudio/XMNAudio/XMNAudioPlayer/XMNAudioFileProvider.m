@@ -44,6 +44,8 @@ static BOOL gLastProviderIsFinished = NO;
 
 @interface XMNAudioLocalFileProvider : XMNAudioFileProvider
 
+- (instancetype)initWithAudioFile:(id <XMNAudioFile>)audioFile
+                        cachePath:(NSString *)cachePath;
 @end
 
 @interface XMNAudioRemoteFileProvider : XMNAudioFileProvider
@@ -60,6 +62,9 @@ static BOOL gLastProviderIsFinished = NO;
     BOOL _readyToProducePackets;
     BOOL _requestCompleted;
 }
+
++ (NSString *)cachedPathForAudioFileURL:(NSURL *)audioFileURL;
+
 @end
 
 
@@ -122,6 +127,14 @@ static BOOL gLastProviderIsFinished = NO;
     }
 #endif /* TARGET_OS_IPHONE */
     else {
+        
+        NSString *cachePath = [XMNAudioRemoteFileProvider cachedPathForAudioFileURL:[audioFile audioFileURL]];
+        if ([[NSFileManager defaultManager] fileExistsAtPath:cachePath]) {
+            
+            return [[XMNAudioLocalFileProvider alloc] initWithAudioFile:audioFile
+                                                              cachePath:cachePath];
+        }
+        
         return [[XMNAudioRemoteFileProvider alloc] initWithAudioFile:audioFile];
     }
     return nil;
@@ -194,10 +207,17 @@ static BOOL gLastProviderIsFinished = NO;
     
 - (instancetype)initWithAudioFile:(id <XMNAudioFile>)audioFile {
     
+    return [[[self class] alloc] initWithAudioFile:audioFile
+                                         cachePath:[[audioFile audioFileURL] path]];
+}
+
+- (instancetype)initWithAudioFile:(id <XMNAudioFile>)audioFile
+                        cachePath:(NSString *)cachePath {
+    
     if (self = [super initWithAudioFile:audioFile]) {
         
         _cachedURL = [audioFile audioFileURL];
-        _cachedPath = [_cachedURL path];
+        _cachedPath = cachePath;
         
         BOOL isDirectory = NO;
         if (![[NSFileManager defaultManager] fileExistsAtPath:_cachedPath
@@ -212,6 +232,7 @@ static BOOL gLastProviderIsFinished = NO;
     }
     return self;
 }
+
 
 
 #pragma mark - XMNAudioLocalFileProvider Getters
@@ -320,7 +341,7 @@ static BOOL gLastProviderIsFinished = NO;
     
     [self closeAudioFileStream];
     
-    [[NSFileManager defaultManager] removeItemAtPath:_cachedPath error:NULL];
+//    [[NSFileManager defaultManager] removeItemAtPath:_cachedPath error:NULL];
 }
 
 
@@ -374,7 +395,8 @@ static BOOL gLastProviderIsFinished = NO;
         _failed = YES;
     } else {
         _requestCompleted = YES;
-        [_mappedData xmn_synchronizeMappedFile];
+        [_mappedData writeToFile:_cachedPath atomically:YES];
+//        [_mappedData xmn_synchronizeMappedFile];
     }
     
     if (!_failed &&
