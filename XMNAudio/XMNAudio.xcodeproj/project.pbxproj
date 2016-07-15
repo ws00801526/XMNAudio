@@ -13,8 +13,6 @@
 		9702AC861D24F5A0003CBA5C /* interf_enc.h in Headers */ = {isa = PBXBuildFile; fileRef = 9702AC631D24F5A0003CBA5C /* interf_enc.h */; };
 		9702AC891D24F5A0003CBA5C /* libopencore-amrnb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9702AC681D24F5A0003CBA5C /* libopencore-amrnb.a */; };
 		9702AC8B1D24F5A0003CBA5C /* XMNAudioConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 9702AC6A1D24F5A0003CBA5C /* XMNAudioConfiguration.h */; };
-		9702AC8C1D24F5A0003CBA5C /* NSData+XMNMappedFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 9702AC6C1D24F5A0003CBA5C /* NSData+XMNMappedFile.h */; };
-		9702AC8D1D24F5A0003CBA5C /* NSData+XMNMappedFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 9702AC6D1D24F5A0003CBA5C /* NSData+XMNMappedFile.m */; };
 		9702AC8E1D24F5A0003CBA5C /* XMNAudioDecoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 9702AC6E1D24F5A0003CBA5C /* XMNAudioDecoder.h */; };
 		9702AC8F1D24F5A0003CBA5C /* XMNAudioDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9702AC6F1D24F5A0003CBA5C /* XMNAudioDecoder.m */; };
 		9702AC901D24F5A0003CBA5C /* XMNAudioFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 9702AC701D24F5A0003CBA5C /* XMNAudioFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -65,8 +63,6 @@
 		9702AC631D24F5A0003CBA5C /* interf_enc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = interf_enc.h; sourceTree = "<group>"; };
 		9702AC681D24F5A0003CBA5C /* libopencore-amrnb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrnb.a"; sourceTree = "<group>"; };
 		9702AC6A1D24F5A0003CBA5C /* XMNAudioConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMNAudioConfiguration.h; sourceTree = "<group>"; };
-		9702AC6C1D24F5A0003CBA5C /* NSData+XMNMappedFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+XMNMappedFile.h"; sourceTree = "<group>"; };
-		9702AC6D1D24F5A0003CBA5C /* NSData+XMNMappedFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+XMNMappedFile.m"; sourceTree = "<group>"; };
 		9702AC6E1D24F5A0003CBA5C /* XMNAudioDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMNAudioDecoder.h; sourceTree = "<group>"; };
 		9702AC6F1D24F5A0003CBA5C /* XMNAudioDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMNAudioDecoder.m; sourceTree = "<group>"; };
 		9702AC701D24F5A0003CBA5C /* XMNAudioFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMNAudioFile.h; sourceTree = "<group>"; };
@@ -190,8 +186,6 @@
 		9702AC6B1D24F5A0003CBA5C /* XMNAudioPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				9702AC6C1D24F5A0003CBA5C /* NSData+XMNMappedFile.h */,
-				9702AC6D1D24F5A0003CBA5C /* NSData+XMNMappedFile.m */,
 				9702AC6E1D24F5A0003CBA5C /* XMNAudioDecoder.h */,
 				9702AC6F1D24F5A0003CBA5C /* XMNAudioDecoder.m */,
 				970463BE1D2665830066AE86 /* XMNAudioDecoder+XMNAMR.h */,
@@ -241,7 +235,6 @@
 				9702AC8E1D24F5A0003CBA5C /* XMNAudioDecoder.h in Headers */,
 				9702AC8B1D24F5A0003CBA5C /* XMNAudioConfiguration.h in Headers */,
 				9702AC1D1D24F506003CBA5C /* XMNAudio.h in Headers */,
-				9702AC8C1D24F5A0003CBA5C /* NSData+XMNMappedFile.h in Headers */,
 				9702AC9F1D24F5A0003CBA5C /* XMNAudioEncoder.h in Headers */,
 				978F2BAB1D2CB9C300B259FE /* XMNHTTPRequest.h in Headers */,
 				9702AC901D24F5A0003CBA5C /* XMNAudioFile.h in Headers */,
@@ -326,7 +319,6 @@
 			files = (
 				9702AC9C1D24F5A0003CBA5C /* XMNAudioRender.m in Sources */,
 				9702AC971D24F5A0003CBA5C /* XMNAudioPlaybackItem.m in Sources */,
-				9702AC8D1D24F5A0003CBA5C /* NSData+XMNMappedFile.m in Sources */,
 				9702ACA01D24F5A0003CBA5C /* XMNAudioEncoder.m in Sources */,
 				978F2BAC1D2CB9C300B259FE /* XMNHTTPRequest.m in Sources */,
 				9702AC931D24F5A0003CBA5C /* XMNAudioFileProvider.m in Sources */,

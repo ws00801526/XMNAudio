@@ -18,8 +18,6 @@
 #include <CoreServices/CoreServices.h>
 #endif /* TARGET_OS_IPHONE */
 
-#import "NSData+XMNMappedFile.h"
-
 static id <XMNAudioFile> gHintFile = nil;
 static XMNAudioFileProvider *gHintProvider = nil;
 static BOOL gLastProviderIsFinished = NO;
@@ -226,7 +224,7 @@ static BOOL gLastProviderIsFinished = NO;
             return nil;
         }
         
-        _mappedData = [NSData xmn_dataWithMappedContentsOfFile:_cachedPath];
+        _mappedData = [NSData dataWithContentsOfFile:_cachedPath];
         _expectedLength = [_mappedData length];
         _receivedLength = [_mappedData length];
     }
@@ -347,7 +345,6 @@ static BOOL gLastProviderIsFinished = NO;
 
 #pragma mark - XMNAudioRemoteFileProvider Methods
 
-
 #pragma mark - Request Methods
 
 - (void)createRequest {
@@ -396,7 +393,6 @@ static BOOL gLastProviderIsFinished = NO;
     } else {
         _requestCompleted = YES;
         [_mappedData writeToFile:_cachedPath atomically:YES];
-//        [_mappedData xmn_synchronizeMappedFile];
     }
     
     if (!_failed &&
@@ -437,7 +433,6 @@ static BOOL gLastProviderIsFinished = NO;
     _mimeType = [[_request responseHeaders] objectForKey:@"Content-Type"];
     
     _mappedData = [NSMutableData dataWithLength:_expectedLength];
-//    _mappedData = [NSData xmn_dataWithMappedContentsOfFile:_cachedPath];
 }
 
 - (void)handleRequestReceivedData:(NSData *)data {
@@ -633,7 +628,6 @@ static void audio_file_stream_packets_proc(void *inClientData,
     if (_fileExtension == nil) {
         _fileExtension = [[[[self audioFile] audioFileURL] path] pathExtension];
     }
-    
     return _fileExtension;
 }
 
