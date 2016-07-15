@@ -39,7 +39,8 @@ static dispatch_once_t localAudioFileToken;
     
     
     dispatch_once(&localAudioFileToken, ^{
-        NSArray<NSString *> *fileNames = @[@"MP3Sample.mp3",
+        NSArray<NSString *> *fileNames = @[@"AMR3.amr",
+                                           @"MP3Sample.mp3",
                                            @"letitgo_j.mp3",
                                            @"letitgo_v.mp3",
                                            @"AMR1.amr",

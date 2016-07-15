@@ -20,6 +20,7 @@
 		9702ACB71D24FC18003CBA5C /* letitgo_v.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9702ACB31D24FC18003CBA5C /* letitgo_v.mp3 */; };
 		9702ACB91D24FFDA003CBA5C /* AMR1.amr in Resources */ = {isa = PBXBuildFile; fileRef = 9702ACB81D24FFD7003CBA5C /* AMR1.amr */; };
 		97037AEF1D29F75B00CA1114 /* MP3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 97037AEE1D29F75B00CA1114 /* MP3.mp3 */; };
+		9791EA211D37838800A21ADA /* AMR3.amr in Resources */ = {isa = PBXBuildFile; fileRef = 9791EA201D37838800A21ADA /* AMR3.amr */; };
 		979862991D266B1300566F17 /* AMR2.amr in Resources */ = {isa = PBXBuildFile; fileRef = 979862981D266B1300566F17 /* AMR2.amr */; };
 		97D8D63C1D34F1D900EE1B86 /* XMNAudioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D8D63B1D34F1D900EE1B86 /* XMNAudioButton.m */; };
 		97FB41EA1D332D5F00CB0B62 /* XMNAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97FB41E91D332D5F00CB0B62 /* XMNAudio.framework */; };
@@ -60,6 +61,7 @@
 		9702ACB31D24FC18003CBA5C /* letitgo_v.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = letitgo_v.mp3; sourceTree = "<group>"; };
 		9702ACB81D24FFD7003CBA5C /* AMR1.amr */ = {isa = PBXFileReference; lastKnownFileType = file; path = AMR1.amr; sourceTree = "<group>"; };
 		97037AEE1D29F75B00CA1114 /* MP3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MP3.mp3; sourceTree = "<group>"; };
+		9791EA201D37838800A21ADA /* AMR3.amr */ = {isa = PBXFileReference; lastKnownFileType = file; path = AMR3.amr; sourceTree = "<group>"; };
 		979862981D266B1300566F17 /* AMR2.amr */ = {isa = PBXFileReference; lastKnownFileType = file; path = AMR2.amr; sourceTree = "<group>"; };
 		97D8D63A1D34F1D900EE1B86 /* XMNAudioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMNAudioButton.h; sourceTree = "<group>"; };
 		97D8D63B1D34F1D900EE1B86 /* XMNAudioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMNAudioButton.m; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				9702ACB31D24FC18003CBA5C /* letitgo_v.mp3 */,
 				9702ACB81D24FFD7003CBA5C /* AMR1.amr */,
 				979862981D266B1300566F17 /* AMR2.amr */,
+				9791EA201D37838800A21ADA /* AMR3.amr */,
 				97037AEE1D29F75B00CA1114 /* MP3.mp3 */,
 				9702AC451D24F597003CBA5C /* Supporting Files */,
 			);
@@ -189,6 +192,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9791EA211D37838800A21ADA /* AMR3.amr in Resources */,
 				979862991D266B1300566F17 /* AMR2.amr in Resources */,
 				9702AC551D24F597003CBA5C /* LaunchScreen.storyboard in Resources */,
 				9702ACB51D24FC18003CBA5C /* MP3Sample.mp3 in Resources */,
